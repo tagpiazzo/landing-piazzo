@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Piano in 100 Minuti — Metodo Piazzo | Impara a suonare le canzoni che ami</title>
+<meta name="description" content="Il metodo che ti fa suonare le tue canzoni preferite al pianoforte in 100 minuti, anche partendo da zero. Senza solfeggio, senza anni di lezioni. Garanzia 30 giorni.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='18' fill='%230b0b0d'/><rect x='16' y='25' width='12' height='50' fill='white'/><rect x='30' y='25' width='12' height='50' fill='white'/><rect x='44' y='25' width='12' height='50' fill='white'/><rect x='58' y='25' width='12' height='50' fill='white'/><rect x='72' y='25' width='12' height='50' fill='%23FFF404'/><rect x='25' y='25' width='8' height='30' fill='%230b0b0d'/><rect x='39' y='25' width='8' height='30' fill='%230b0b0d'/><rect x='67' y='25' width='8' height='30' fill='%230b0b0d'/></svg>">
+<style>
+:root{
+  --nero:#0b0b0d;
+  --nero-2:#141418;
+  --nero-3:#1d1d23;
+  --giallo:#FFF404;
+  --giallo-scuro:#b5ad00;
+  --bianco:#ffffff;
+  --grigio:#a3a3ad;
+  --grigio-chiaro:#e8e8ec;
+  --rosso:#ff4c4c;
+  --verde:#3ecf6a;
+  --radius:18px;
+  --shadow-y:0 10px 40px rgba(255,244,4,.18);
+  --maxw:1160px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Rubik',sans-serif;
+  background:var(--nero);
+  color:var(--bianco);
+  line-height:1.6;
+  overflow-x:hidden;
+}
+::selection{background:var(--giallo);color:var(--nero)}
+img{max-width:100%}
+a{color:inherit}
+.container{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+section{position:relative}
+
+/* ---------- utility ---------- */
+.eyebrow{
+  display:inline-flex;align-items:center;gap:10px;
+  font-size:13px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--giallo);
+  margin-bottom:18px;
+}
+.eyebrow::before{content:"";width:34px;height:2px;background:var(--giallo)}
+h1,h2,h3{line-height:1.12;font-weight:800;letter-spacing:-.02em}
+h2{font-size:clamp(30px,4.4vw,50px);margin-bottom:20px}
+.section-sub{font-size:clamp(16px,2vw,19px);color:var(--grigio);max-width:680px}
+.hl{
+  background:linear-gradient(transparent 58%, rgba(255,244,4,.85) 58%, rgba(255,244,4,.85) 92%, transparent 92%);
+  color:inherit;padding:0 2px;
+}
+.dark .hl,.hero .hl{color:var(--bianco)}
+.yellow-text{color:var(--giallo)}
+.center{text-align:center}
+.center .section-sub{margin-left:auto;margin-right:auto}
+
+/* ---------- reveal animations ---------- */
+.reveal{opacity:0;transform:translateY(34px);transition:opacity .8s cubic-bezier(.22,1,.36,1),transform .8s cubic-bezier(.22,1,.36,1)}
+.reveal.visible{opacity:1;transform:none}
+.reveal-left{opacity:0;transform:translateX(-40px);transition:opacity .8s ease,transform .8s cubic-bezier(.22,1,.36,1)}
+.reveal-left.visible{opacity:1;transform:none}
+.reveal-right{opacity:0;transform:translateX(40px);transition:opacity .8s ease,transform .8s cubic-bezier(.22,1,.36,1)}
+.reveal-right.visible{opacity:1;transform:none}
+.stagger>*{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s cubic-bezier(.22,1,.36,1)}
+.stagger.visible>*{opacity:1;transform:none}
+
+/* ---------- buttons ---------- */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  font-family:inherit;font-weight:800;font-size:17px;
+  padding:18px 38px;border-radius:60px;border:none;cursor:pointer;
+  text-decoration:none;transition:transform .25s ease,box-shadow .25s ease,background .25s;
+  position:relative;overflow:hidden;
+}
+.btn-giallo{background:var(--giallo);color:var(--nero);box-shadow:var(--shadow-y)}
+.btn-giallo:hover{transform:translateY(-3px) scale(1.02);box-shadow:0 16px 50px rgba(255,244,4,.35)}
+.btn-giallo::after{
+  content:"";position:absolute;top:0;left:-80%;width:50%;height:100%;
+  background:linear-gradient(105deg,transparent,rgba(255,255,255,.65),transparent);
+  transform:skewX(-20deg);animation:shine 3.4s infinite;
+}
+@keyframes shine{0%{left:-80%}55%{left:130%}100%{left:130%}}
+.btn-ghost{background:transparent;color:var(--bianco);border:2px solid rgba(255,255,255,.25)}
+.btn-ghost:hover{border-color:var(--giallo);color:var(--giallo);transform:translateY(-2px)}
+.btn-note{display:block;font-size:13px;color:var(--grigio);margin-top:12px}
+.btn-note svg{vertical-align:-2px;margin-right:4px}
+
+/* ---------- header ---------- */
+header{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  background:rgba(11,11,13,.72);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(255,255,255,.07);
+  transition:background .3s;
+}
+.header-inner{
+  max-width:var(--maxw);margin:0 auto;padding:14px 24px;
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.logo-keys{display:flex;align-items:flex-start;height:30px;border-radius:4px;overflow:hidden;border:2px solid var(--giallo)}
+.logo-keys span{width:9px;height:100%;background:var(--bianco);border-right:1px solid #ccc}
+.logo-keys span:last-child{border-right:none}
+.logo-keys i{width:6px;height:60%;background:var(--nero);margin:0 -3.5px;z-index:2;position:relative}
+.logo-text{display:flex;flex-direction:column;line-height:1.05}
+.logo-text b{font-weight:900;font-size:19px;letter-spacing:.06em;color:var(--giallo)}
+.logo-text small{font-size:9.5px;letter-spacing:.24em;color:var(--grigio);text-transform:uppercase}
+.header-cta{padding:11px 24px;font-size:14px}
+.header-cta::after{display:none}
+nav.deskmenu{display:flex;gap:28px;font-size:14px;font-weight:500}
+nav.deskmenu a{text-decoration:none;color:var(--grigio);transition:color .2s}
+nav.deskmenu a:hover{color:var(--giallo)}
+@media(max-width:860px){nav.deskmenu{display:none}}
+
+/* ---------- announcement bar ---------- */
+.announce{
+  background:var(--giallo);color:var(--nero);
+  font-size:13px;font-weight:700;text-align:center;
+  padding:8px 16px;letter-spacing:.02em;
+}
+
+/* ---------- hero ---------- */
+.hero{
+  min-height:100svh;
+  display:flex;flex-direction:column;justify-content:center;
+  padding:150px 0 0;
+  background:
+    radial-gradient(1000px 600px at 75% 10%, rgba(255,244,4,.09), transparent 60%),
+    radial-gradient(700px 500px at 12% 80%, rgba(255,244,4,.05), transparent 60%),
+    var(--nero);
+  overflow:hidden;
+}
+.hero-inner{max-width:var(--maxw);margin:0 auto;padding:0 24px;position:relative;z-index:3;text-align:center}
+.hero h1{font-size:clamp(38px,6.2vw,74px);font-weight:900;max-width:950px;margin:0 auto 24px}
+.hero .sub{font-size:clamp(17px,2.2vw,22px);color:var(--grigio);max-width:720px;margin:0 auto 36px}
+.hero .sub b{color:var(--bianco)}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:9px;
+  background:rgba(255,244,4,.1);border:1px solid rgba(255,244,4,.35);
+  color:var(--giallo);font-size:13.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  padding:9px 20px;border-radius:40px;margin-bottom:28px;
+}
+.pulse-dot{width:9px;height:9px;border-radius:50%;background:var(--giallo);position:relative}
+.pulse-dot::after{content:"";position:absolute;inset:-5px;border-radius:50%;border:2px solid var(--giallo);animation:pulse 1.8s infinite}
+@keyframes pulse{0%{transform:scale(.6);opacity:1}100%{transform:scale(1.6);opacity:0}}
+.hero-proof{
+  display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;
+  margin-top:34px;font-size:14.5px;color:var(--grigio);
+}
+.stars{color:var(--giallo);letter-spacing:2px;font-size:16px}
+.avatars{display:flex}
+.avatars span{
+  width:36px;height:36px;border-radius:50%;border:2px solid var(--nero);
+  margin-left:-10px;display:flex;align-items:center;justify-content:center;
+  font-weight:800;font-size:13px;color:var(--nero);
+}
+.avatars span:first-child{margin-left:0}
+
+/* piano hero */
+.piano-wrap{
+  margin-top:70px;position:relative;z-index:2;
+  filter:drop-shadow(0 -18px 60px rgba(255,244,4,.13));
+}
+.piano{
+  display:flex;justify-content:center;align-items:flex-start;
+  height:clamp(120px,20vw,210px);
+  max-width:1300px;margin:0 auto;
+  border-top:6px solid var(--giallo);
+  background:var(--nero-2);
+  position:relative;
+}
+.key-w{
+  flex:1;max-width:78px;height:100%;
+  background:linear-gradient(#fff, #ececec 88%, #d9d9d9);
+  border:1px solid #c9c9c9;border-top:none;
+  border-radius:0 0 7px 7px;
+  position:relative;cursor:pointer;
+  transition:background .07s, transform .07s;
+  transform-origin:top center;
+}
+.key-w.active,.key-w:active{background:linear-gradient(var(--giallo), #e3d904);transform:rotateX(6deg) translateY(2px)}
+.key-b{
+  position:absolute;top:0;right:-19%;width:38%;height:58%;
+  background:linear-gradient(#2a2a2e,#0b0b0d 80%);
+  border-radius:0 0 5px 5px;z-index:3;cursor:pointer;
+  transition:background .07s, transform .07s;transform-origin:top center;
+  box-shadow:0 5px 8px rgba(0,0,0,.5);
+}
+.key-b.active,.key-b:active{background:var(--giallo-scuro);transform:rotateX(8deg) translateY(2px)}
+.piano-hint{
+  text-align:center;font-size:12.5px;color:var(--grigio);letter-spacing:.14em;text-transform:uppercase;
+  padding:14px 0 0;opacity:.85;
+}
+.piano-hint b{color:var(--giallo)}
+
+/* floating notes */
+.note-float{
+  position:absolute;color:rgba(255,244,4,.5);font-size:26px;z-index:1;
+  animation:floatUp linear infinite;pointer-events:none;user-select:none;
+}
+@keyframes floatUp{
+  0%{transform:translateY(20vh) rotate(-8deg);opacity:0}
+  12%{opacity:.75}
+  85%{opacity:.55}
+  100%{transform:translateY(-96vh) rotate(14deg);opacity:0}
+}
+
+/* ---------- marquee ---------- */
+.marquee{
+  background:var(--giallo);color:var(--nero);overflow:hidden;
+  padding:15px 0;transform:rotate(-1.2deg) scale(1.02);
+  border-top:3px solid var(--nero);border-bottom:3px solid var(--nero);
+  position:relative;z-index:5;
+}
+.marquee-track{display:flex;gap:44px;white-space:nowrap;width:max-content;animation:scrollX 26s linear infinite}
+.marquee-track span{font-weight:800;font-size:16px;letter-spacing:.06em;text-transform:uppercase;display:flex;align-items:center;gap:44px}
+.marquee-track span::after{content:"♪";font-size:19px}
+
+@keyframes scrollX{to{transform:translateX(-50%)}}
+
+/* ---------- sections base ---------- */
+.sec{padding:110px 0}
+.sec-light{background:var(--grigio-chiaro);color:var(--nero)}
+.sec-light .section-sub{color:#55555e}
+.sec-darker{background:var(--nero-2)}
+
+/* ---------- problemi ---------- */
+.pain-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:22px;margin-top:54px}
+.pain-card{
+  background:#fff;border-radius:var(--radius);padding:30px 28px;
+  border:1px solid #dcdce2;
+  transition:transform .3s ease,box-shadow .3s ease;
+  position:relative;
+}
+.pain-card:hover{transform:translateY(-6px);box-shadow:0 18px 45px rgba(11,11,13,.12)}
+.pain-card .pnum{
+  position:absolute;top:22px;right:24px;font-size:44px;font-weight:900;
+  color:rgba(11,11,13,.06);line-height:1;
+}
+.pain-icon{
+  width:52px;height:52px;border-radius:14px;background:var(--nero);color:var(--giallo);
+  display:flex;align-items:center;justify-content:center;font-size:24px;margin-bottom:18px;
+}
+.pain-card h3{font-size:19px;margin-bottom:10px}
+.pain-card p{font-size:15px;color:#5b5b64}
+
+/* ---------- agitazione / vecchio metodo ---------- */
+.versus{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:56px}
+@media(max-width:820px){.versus{grid-template-columns:1fr}}
+.vs-col{border-radius:var(--radius);padding:38px 34px;position:relative;overflow:hidden}
+.vs-old{background:var(--nero-3);border:1px solid rgba(255,76,76,.3)}
+.vs-new{background:linear-gradient(160deg, rgba(255,244,4,.14), rgba(255,244,4,.04));border:1px solid rgba(255,244,4,.5)}
+.vs-tag{
+  display:inline-block;font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;
+  padding:7px 16px;border-radius:30px;margin-bottom:22px;
+}
+.vs-old .vs-tag{background:rgba(255,76,76,.15);color:var(--rosso)}
+.vs-new .vs-tag{background:var(--giallo);color:var(--nero)}
+.vs-col h3{font-size:23px;margin-bottom:20px}
+.vs-col ul{list-style:none;display:flex;flex-direction:column;gap:15px}
+.vs-col li{display:block;position:relative;padding-left:27px;font-size:15.5px;color:var(--grigio-chiaro)}
+.vs-old li::before{content:"✕";color:var(--rosso);font-weight:900;position:absolute;left:0;top:0}
+.vs-new li::before{content:"✓";color:var(--giallo);font-weight:900;position:absolute;left:0;top:0}
+.vs-new li b{color:var(--bianco)}
+
+/* ---------- metodo: timeline 100 minuti ---------- */
+.timeline{margin-top:70px;position:relative;display:flex;flex-direction:column;gap:0}
+.timeline::before{
+  content:"";position:absolute;left:29px;top:10px;bottom:10px;width:3px;
+  background:linear-gradient(var(--giallo), rgba(255,244,4,.1));
+}
+.t-step{display:flex;gap:30px;padding:26px 0;position:relative}
+.t-dot{
+  width:60px;height:60px;border-radius:50%;flex-shrink:0;
+  background:var(--nero);border:3px solid var(--giallo);
+  display:flex;align-items:center;justify-content:center;
+  font-weight:900;font-size:13px;color:var(--giallo);z-index:2;
+  box-shadow:0 0 0 6px var(--nero);
+  text-align:center;line-height:1.1;
+}
+.t-body{padding-top:6px}
+.t-body h3{font-size:21px;margin-bottom:8px}
+.t-body h3 small{
+  display:inline-block;background:rgba(255,244,4,.12);color:var(--giallo);
+  font-size:12px;font-weight:700;padding:3px 12px;border-radius:20px;margin-left:10px;
+  letter-spacing:.06em;vertical-align:middle;
+}
+.t-body p{color:var(--grigio);font-size:15.5px;max-width:640px}
+
+/* ---------- numeri ---------- */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;margin-top:60px}
+.stat{
+  background:var(--nero-2);border:1px solid rgba(255,255,255,.08);
+  border-radius:var(--radius);padding:34px 20px;text-align:center;
+  transition:border-color .3s;
+}
+.stat:hover{border-color:rgba(255,244,4,.5)}
+.stat .num{font-size:clamp(38px,4.6vw,54px);font-weight:900;color:var(--giallo);line-height:1}
+.stat .lbl{font-size:14px;color:var(--grigio);margin-top:10px}
+
+/* ---------- moduli ---------- */
+.mod-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:22px;margin-top:54px}
+.mod{
+  background:var(--nero-2);border:1px solid rgba(255,255,255,.08);border-radius:var(--radius);
+  padding:32px 30px;transition:transform .3s,border-color .3s;position:relative;overflow:hidden;
+}
+.mod::before{
+  content:"";position:absolute;top:0;left:0;width:100%;height:4px;
+  background:linear-gradient(90deg,var(--giallo),transparent);
+  transform:scaleX(0);transform-origin:left;transition:transform .4s ease;
+}
+.mod:hover{transform:translateY(-6px);border-color:rgba(255,244,4,.4)}
+.mod:hover::before{transform:scaleX(1)}
+.mod-n{font-size:13px;font-weight:800;color:var(--giallo);letter-spacing:.16em;margin-bottom:14px}
+.mod h3{font-size:20px;margin-bottom:12px}
+.mod p{font-size:15px;color:var(--grigio)}
+.mod .dur{
+  display:inline-flex;align-items:center;gap:7px;margin-top:18px;
+  font-size:13px;font-weight:700;color:var(--bianco);
+  background:rgba(255,255,255,.07);padding:6px 14px;border-radius:20px;
+}
+
+/* ---------- dream ---------- */
+.dream{
+  background:
+    radial-gradient(900px 500px at 50% 0%, rgba(255,244,4,.13), transparent 65%),
+    var(--nero);
+  text-align:center;
+}
+.dream h2{font-size:clamp(32px,5vw,58px);max-width:900px;margin:0 auto 26px}
+.dream-list{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:20px;max-width:1000px;margin:56px auto 0;text-align:left;
+}
+.dream-item{
+  background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.09);
+  border-radius:var(--radius);padding:26px;display:flex;gap:16px;align-items:flex-start;
+  transition:background .3s,border-color .3s;
+}
+.dream-item:hover{background:rgba(255,244,4,.07);border-color:rgba(255,244,4,.4)}
+.dream-item .em{font-size:28px;flex-shrink:0}
+.dream-item p{font-size:15.5px;color:var(--grigio-chiaro)}
+.dream-item p b{color:var(--giallo)}
+
+/* ---------- testimonianze ---------- */
+.testi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:22px;margin-top:54px}
+.testi{
+  background:#fff;border-radius:var(--radius);padding:30px;
+  border:1px solid #dcdce2;display:flex;flex-direction:column;gap:16px;
+  transition:transform .3s,box-shadow .3s;
+}
+.testi:hover{transform:translateY(-5px);box-shadow:0 18px 45px rgba(11,11,13,.12)}
+.testi .stars{font-size:15px}
+.testi p{font-size:15.5px;color:#3c3c44;font-style:italic}
+.testi-author{display:flex;align-items:center;gap:13px;margin-top:auto}
+.testi-avatar{
+  width:46px;height:46px;border-radius:50%;background:var(--nero);color:var(--giallo);
+  display:flex;align-items:center;justify-content:center;font-weight:800;font-size:16px;flex-shrink:0;
+}
+.testi-author b{display:block;font-size:15px;color:var(--nero)}
+.testi-author small{font-size:13px;color:#83838c}
+
+/* ---------- per chi è ---------- */
+.forwho{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:54px}
+@media(max-width:820px){.forwho{grid-template-columns:1fr}}
+
+/* ---------- chi siamo ---------- */
+.chisiamo-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+@media(max-width:900px){.chisiamo-grid{grid-template-columns:1fr;gap:44px}}
+
+/* ---------- offerta ---------- */
+.offer-box{
+  max-width:760px;margin:60px auto 0;
+  background:var(--nero-2);
+  border:2px solid var(--giallo);border-radius:26px;
+  padding:52px 46px;position:relative;
+  box-shadow:0 0 90px rgba(255,244,4,.12);
+}
+@media(max-width:640px){.offer-box{padding:40px 24px}}
+.offer-ribbon{
+  position:absolute;top:-19px;left:50%;transform:translateX(-50%);
+  background:var(--giallo);color:var(--nero);font-weight:900;font-size:13.5px;
+  letter-spacing:.12em;text-transform:uppercase;padding:9px 28px;border-radius:30px;white-space:nowrap;
+}
+.offer-title{text-align:center;font-size:clamp(24px,3.4vw,32px);margin-bottom:8px}
+.offer-sub{text-align:center;color:var(--grigio);font-size:15px;margin-bottom:34px}
+.offer-list{list-style:none;display:flex;flex-direction:column;gap:15px;margin-bottom:20px}
+.offer-list li{display:flex;gap:13px;align-items:flex-start;font-size:16px}
+.offer-list li::before{content:"✓";color:var(--nero);background:var(--giallo);width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:13px;flex-shrink:0;margin-top:2px}
+.offer-list li b{color:var(--giallo)}
+.offer-list li s{color:var(--grigio);font-weight:400}
+.offer-divider{border:none;border-top:1px dashed rgba(255,255,255,.2);margin:26px 0}
+.price-row{display:flex;align-items:baseline;justify-content:center;gap:18px;margin-bottom:8px}
+.price-old{font-size:26px;color:var(--grigio);text-decoration:line-through;text-decoration-color:var(--rosso);text-decoration-thickness:3px}
+.price-new{font-size:clamp(52px,7vw,72px);font-weight:900;color:var(--giallo);line-height:1}
+.price-note{text-align:center;color:var(--grigio);font-size:14px;margin-bottom:30px}
+.offer-box .btn{width:100%;font-size:19px;padding:21px}
+.secure-row{
+  display:flex;justify-content:center;gap:22px;flex-wrap:wrap;margin-top:20px;
+  font-size:13px;color:var(--grigio);
+}
+.secure-row span{display:flex;align-items:center;gap:6px}
+
+/* ---------- garanzia ---------- */
+.garanzia{
+  display:grid;grid-template-columns:auto 1fr;gap:50px;align-items:center;
+  max-width:900px;margin:0 auto;
+  background:linear-gradient(150deg, rgba(255,244,4,.1), rgba(255,244,4,.02));
+  border:1px solid rgba(255,244,4,.45);border-radius:26px;padding:54px;
+}
+@media(max-width:760px){.garanzia{grid-template-columns:1fr;text-align:center;padding:40px 26px;justify-items:center}}
+.seal{
+  width:170px;height:170px;flex-shrink:0;position:relative;
+  animation:sealFloat 5s ease-in-out infinite;
+}
+@keyframes sealFloat{0%,100%{transform:translateY(0) rotate(-3deg)}50%{transform:translateY(-10px) rotate(3deg)}}
+.seal svg{width:100%;height:100%}
+.seal .spin{animation:spin 22s linear infinite;transform-origin:center}
+@keyframes spin{to{transform:rotate(360deg)}}
+.garanzia h2{font-size:clamp(26px,3.6vw,38px)}
+.garanzia p{color:var(--grigio-chiaro);font-size:16px;margin-top:14px}
+.garanzia p b{color:var(--giallo)}
+
+/* ---------- faq ---------- */
+.faq-list{max-width:820px;margin:54px auto 0;display:flex;flex-direction:column;gap:14px}
+.faq{
+  background:var(--nero-2);border:1px solid rgba(255,255,255,.09);border-radius:16px;
+  overflow:hidden;transition:border-color .3s;
+}
+.faq[open]{border-color:rgba(255,244,4,.5)}
+.faq summary{
+  list-style:none;cursor:pointer;padding:22px 26px;
+  font-weight:700;font-size:16.5px;display:flex;justify-content:space-between;align-items:center;gap:16px;
+}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{
+  content:"+";font-size:26px;font-weight:400;color:var(--giallo);
+  transition:transform .3s;flex-shrink:0;line-height:1;
+}
+.faq[open] summary::after{transform:rotate(45deg)}
+.faq .faq-body{padding:0 26px 24px;color:var(--grigio);font-size:15.5px}
+.faq .faq-body b{color:var(--bianco)}
+
+/* ---------- final cta ---------- */
+.final{
+  text-align:center;
+  background:
+    radial-gradient(800px 460px at 50% 100%, rgba(255,244,4,.16), transparent 65%),
+    var(--nero-2);
+  padding:130px 0 150px;
+}
+.final h2{font-size:clamp(32px,5vw,56px);max-width:820px;margin:0 auto 22px}
+.final .section-sub{margin:0 auto 40px}
+
+/* ---------- footer ---------- */
+footer{background:#060608;border-top:1px solid rgba(255,255,255,.07);padding:60px 0 40px}
+.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:44px;margin-bottom:44px}
+@media(max-width:760px){.footer-grid{grid-template-columns:1fr}}
+footer h4{font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:var(--giallo);margin-bottom:16px}
+footer p,footer a{font-size:14.5px;color:var(--grigio);text-decoration:none;line-height:2}
+footer a:hover{color:var(--giallo)}
+.footer-bottom{
+  border-top:1px solid rgba(255,255,255,.07);padding-top:26px;
+  display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;
+  font-size:13px;color:#63636b;
+}
+
+/* ---------- sticky cta ---------- */
+.sticky-cta{
+  position:fixed;bottom:0;left:0;right:0;z-index:90;
+  background:rgba(11,11,13,.92);backdrop-filter:blur(12px);
+  border-top:1px solid rgba(255,244,4,.35);
+  padding:12px 20px;
+  display:flex;align-items:center;justify-content:center;gap:20px;
+  transform:translateY(110%);transition:transform .45s cubic-bezier(.22,1,.36,1);
+}
+.sticky-cta.show{transform:none}
+.sticky-cta .sc-text{font-size:14.5px;font-weight:600}
+.sticky-cta .sc-text b{color:var(--giallo)}
+.sticky-cta .btn{padding:12px 28px;font-size:15px}
+@media(max-width:560px){.sticky-cta .sc-text span{display:none}}
+</style>
+</head>
+<body>
+
+<!-- ======= HEADER ======= -->
+<header id="header">
+  <div class="announce">🎹 Offerta di lancio: <b>−67%</b> + Garanzia "Suoni o Rimborsato" di 30 giorni — solo per poco tempo</div>
+  <div class="header-inner">
+    <a class="logo" href="#top" aria-label="Piazzo Strumenti Musicali">
+      <span class="logo-keys" aria-hidden="true">
+        <span></span><i></i><span></span><i></i><span></span><span></span><i></i><span></span>
+      </span>
+      <span class="logo-text"><b>A. PIAZZO</b><small>Mestrino · Padova</small></span>
+    </a>
+    <nav class="deskmenu">
+      <a href="#metodo">Il Metodo</a>
+      <a href="#percorso">I 100 Minuti</a>
+      <a href="#testimonianze">Recensioni</a>
+      <a href="#garanzia">Garanzia</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <a href="#offerta" class="btn btn-giallo header-cta">Inizia ora</a>
+  </div>
+</header>
+
+<!-- ======= HERO ======= -->
+<section class="hero" id="top">
+  <div class="hero-inner">
+    <div class="hero-badge reveal"><span class="pulse-dot"></span> Metodo Piazzo · Per chi parte da zero</div>
+    <h1 class="reveal">Suona le canzoni che <span class="yellow-text">ami</span> dopo soli <span class="hl">100 minuti</span> di pratica</h1>
+    <p class="sub reveal">Senza solfeggio. Senza anni di lezioni. Senza sapere leggere una nota.<br>
+    Il metodo pratico che ti mette le <b>tue canzoni preferite sotto le dita</b> — e ti insegna a <b>riconoscerle a orecchio</b> quando le senti alla radio.</p>
+    <div class="reveal">
+      <a href="#offerta" class="btn btn-giallo">🎹 Voglio iniziare a suonare</a>
+      <span class="btn-note">✓ Accesso immediato &nbsp;·&nbsp; ✓ Garanzia 30 giorni &nbsp;·&nbsp; ✓ Per sempre tuo</span>
+    </div>
+    <div class="hero-proof reveal">
+      <div class="avatars" aria-hidden="true">
+        <span style="background:#ffd166">M</span><span style="background:#8ecae6">L</span><span style="background:#f4a261">G</span><span style="background:#b5e48c">S</span><span style="background:#fff404">+</span>
+      </div>
+      <div><span class="stars">★★★★★</span> <b style="color:#fff">4,9/5</b> — oltre 2.400 studenti hanno già suonato la loro prima canzone</div>
+    </div>
+  </div>
+
+  <!-- interactive piano -->
+  <div class="piano-wrap">
+    <div class="piano-hint">▼ &nbsp;Questo pianoforte <b>suona davvero</b> — provalo&nbsp; ▼</div>
+    <div class="piano" id="piano" aria-label="Pianoforte interattivo"></div>
+  </div>
+</section>
+
+<!-- ======= MARQUEE ======= -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track" id="marquee">
+    <span>100 minuti, non 10 anni</span>
+    <span>Zero solfeggio</span>
+    <span>Le tue canzoni, non gli esercizi</span>
+    <span>Riconosci gli accordi a orecchio</span>
+    <span>Garanzia 30 giorni</span>
+    <span>Parti da zero assoluto</span>
+  </div>
+</div>
+
+<!-- ======= PROBLEMI ======= -->
+<section class="sec sec-light" id="problemi">
+  <div class="container">
+    <div class="center reveal">
+      <div class="eyebrow" style="justify-content:center">Ti riconosci?</div>
+      <h2>Quante volte hai pensato<br>&laquo;vorrei saper suonare&raquo;… e poi ti sei fermato?</h2>
+      <p class="section-sub">Non sei l'unico. Ecco i 6 muri contro cui si schianta chi sogna il pianoforte. Se ti riconosci anche in uno solo, continua a leggere.</p>
+    </div>
+    <div class="pain-grid stagger">
+      <div class="pain-card"><span class="pnum">01</span><div class="pain-icon">⏳</div><h3>«Non ho tempo»</h3><p>Tra lavoro, famiglia e impegni, l'idea di anni di lezioni settimanali ti fa rinunciare prima ancora di iniziare.</p></div>
+      <div class="pain-card"><span class="pnum">02</span><div class="pain-icon">🎼</div><h3>«Il solfeggio mi terrorizza»</h3><p>Pentagrammi, chiavi, battute... Ti sembra di dover imparare una lingua straniera prima di poter toccare un tasto.</p></div>
+      <div class="pain-card"><span class="pnum">03</span><div class="pain-icon">👴</div><h3>«Ormai è troppo tardi»</h3><p>Ti hanno convinto che si impara solo da bambini. E ogni anno che passa, quel sogno sembra allontanarsi ancora di più.</p></div>
+      <div class="pain-card"><span class="pnum">04</span><div class="pain-icon">😩</div><h3>«Ho già provato e mollato»</h3><p>Lezioni noiose, esercizi infiniti, mesi passati su brani che non ti piacevano. La passione si è spenta prima dei risultati.</p></div>
+      <div class="pain-card"><span class="pnum">05</span><div class="pain-icon">🙈</div><h3>«Non sono portato»</h3><p>Guardi chi suona a orecchio e pensi che sia un dono di nascita. Spoiler: è una tecnica. E si impara.</p></div>
+      <div class="pain-card"><span class="pnum">06</span><div class="pain-icon">💸</div><h3>«Le lezioni costano troppo»</h3><p>80-100€ al mese, per anni. Migliaia di euro prima di riuscire a suonare qualcosa che ti emozioni davvero.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ======= AGITAZIONE / VERSUS ======= -->
+<section class="sec" id="metodo">
+  <div class="container">
+    <div class="reveal">
+      <div class="eyebrow">La verità scomoda</div>
+      <h2>Non è colpa tua.<br>È colpa del <span class="yellow-text">metodo</span>.</h2>
+      <p class="section-sub">Il percorso tradizionale è pensato per formare concertisti in 10 anni. Ma tu non vuoi diplomarti al conservatorio: <b style="color:#fff">vuoi sederti al piano e suonare le canzoni che ami</b>. Sono due obiettivi diversi — e richiedono due strade diverse.</p>
+    </div>
+    <div class="versus">
+      <div class="vs-col vs-old reveal-left">
+        <span class="vs-tag">Il metodo tradizionale</span>
+        <h3>Anni di teoria prima della musica</h3>
+        <ul>
+          <li>6-12 mesi di solfeggio prima di suonare un brano vero</li>
+          <li>Esercizi ripetitivi su brani che non ti dicono niente</li>
+          <li>Lezioni a orario fisso, ogni settimana, per anni</li>
+          <li>Migliaia di euro tra lezioni, libri e materiale</li>
+          <li>L'orecchio musicale? «Quello viene da sé» (spoiler: non viene)</li>
+          <li>Risultato: il 70% abbandona entro il primo anno</li>
+        </ul>
+      </div>
+      <div class="vs-col vs-new reveal-right">
+        <span class="vs-tag">Il Metodo Piazzo — 100 minuti</span>
+        <h3>La musica prima, la teoria dopo (e solo quella che serve)</h3>
+        <ul>
+          <li><b>Suoni dal minuto 1:</b> parti dagli accordi, il "codice segreto" dietro il 90% delle canzoni pop</li>
+          <li><b>4 accordi = centinaia di canzoni:</b> impari lo schema che si ripete da Vasco ai Coldplay</li>
+          <li><b>Quando vuoi tu:</b> video-lezioni brevi, riguardabili all'infinito</li>
+          <li><b>Orecchio allenato da subito:</b> esercizi guidati per riconoscere accordi e melodie che senti</li>
+          <li><b>Un unico investimento:</b> meno di una singola mensilità di lezioni private</li>
+          <li><b>Risultato:</b> la tua prima canzone completa entro 100 minuti di pratica</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======= NUMERI ======= -->
+<section class="sec sec-darker" style="padding-top:80px;padding-bottom:80px">
+  <div class="container">
+    <div class="stats stagger">
+      <div class="stat"><div class="num"><span class="counter" data-target="100">0</span></div><div class="lbl">minuti per la tua prima canzone</div></div>
+      <div class="stat"><div class="num"><span class="counter" data-target="2400">0</span>+</div><div class="lbl">studenti partiti da zero</div></div>
+      <div class="stat"><div class="num"><span class="counter" data-target="4">0</span></div><div class="lbl">accordi per suonare centinaia di brani</div></div>
+      <div class="stat"><div class="num"><span class="counter" data-target="30">0</span></div><div class="lbl">giorni di garanzia totale</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ======= PERCORSO 100 MINUTI ======= -->
+<section class="sec" id="percorso">
+  <div class="container">
+    <div class="reveal">
+      <div class="eyebrow">Minuto per minuto</div>
+      <h2>Cosa succede nei tuoi<br>primi <span class="yellow-text">100 minuti</span> al pianoforte</h2>
+      <p class="section-sub">Nessuna magia: solo un percorso progettato al millimetro, dove ogni minuto costruisce sul precedente. Ecco esattamente dove sarai, tappa dopo tappa.</p>
+    </div>
+    <div class="timeline">
+      <div class="t-step reveal">
+        <div class="t-dot">0-20<br>min</div>
+        <div class="t-body">
+          <h3>Le tue mani trovano casa <small>Fondamenta</small></h3>
+          <p>Impari la mappa della tastiera con un trucco visivo che non dimenticherai più. Alla fine di questa tappa suoni già il tuo primo accordo — e suona bene.</p>
+        </div>
+      </div>
+      <div class="t-step reveal">
+        <div class="t-dot">20-45<br>min</div>
+        <div class="t-body">
+          <h3>Il codice segreto delle hit <small>I 4 accordi magici</small></h3>
+          <p>Ti sveliamo la progressione che regge il 90% delle canzoni pop, rock e italiane. Quattro accordi, un giro che riconoscerai ovunque: da "Albachiara" a "Let It Be".</p>
+        </div>
+      </div>
+      <div class="t-step reveal">
+        <div class="t-dot">45-70<br>min</div>
+        <div class="t-body">
+          <h3>Le due mani insieme <small>Ritmo</small></h3>
+          <p>Il momento che tutti temono, reso semplice: un sistema in 3 passi per coordinare accompagnamento e melodia senza incastrarti. Da qui in poi, suoni "da pianista".</p>
+        </div>
+      </div>
+      <div class="t-step reveal">
+        <div class="t-dot">70-90<br>min</div>
+        <div class="t-body">
+          <h3>Il tuo orecchio si accende <small>Ear training</small></h3>
+          <p>Esercizi guidati per riconoscere gli accordi a orecchio. Metti una canzone qualsiasi: inizierai a "sentire" il giro armonico sotto la voce. È il superpotere che credevi innato.</p>
+        </div>
+      </div>
+      <div class="t-step reveal">
+        <div class="t-dot">90-100<br>min</div>
+        <div class="t-body">
+          <h3>La tua prima canzone, completa <small>Il traguardo</small></h3>
+          <p>Scegli un brano dalla nostra libreria (o porta il tuo) e lo suoni dall'inizio alla fine. Intro, strofa, ritornello. Registrati, riascoltati: quello al piano sei tu.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======= MODULI / COSA OTTIENI ======= -->
+<section class="sec sec-darker" id="moduli">
+  <div class="container">
+    <div class="reveal">
+      <div class="eyebrow">Dentro il corso</div>
+      <h2>Tutto quello che trovi<br>in <span class="yellow-text">Piano in 100 Minuti</span></h2>
+      <p class="section-sub">I 100 minuti sono solo l'inizio. Il corso completo ti accompagna ben oltre la prima canzone, con un percorso che cresce con te.</p>
+    </div>
+    <div class="mod-grid stagger">
+      <div class="mod"><div class="mod-n">MODULO 01</div><h3>La Tastiera Senza Segreti</h3><p>La mappa mentale della tastiera, la postura corretta e il primo accordo. Zero teoria inutile: solo ciò che ti serve per suonare subito.</p><span class="dur">▶ 5 video · 20 min</span></div>
+      <div class="mod"><div class="mod-n">MODULO 02</div><h3>I 4 Accordi Magici</h3><p>La progressione universale della musica pop e gli schemi per passare da un accordo all'altro con fluidità, senza guardare le mani.</p><span class="dur">▶ 6 video · 25 min</span></div>
+      <div class="mod"><div class="mod-n">MODULO 03</div><h3>Due Mani, Un Suono</h3><p>Il sistema in 3 passi per coordinare le mani: accompagnamento ritmico a sinistra, melodia a destra. Il salto di qualità che si sente.</p><span class="dur">▶ 6 video · 25 min</span></div>
+      <div class="mod"><div class="mod-n">MODULO 04</div><h3>Orecchio Assoluto (Quasi)</h3><p>Ear training pratico: riconoscere maggiore e minore, sentire i giri armonici, tirare giù a orecchio le canzoni che ti passano in testa.</p><span class="dur">▶ 5 video · 20 min</span></div>
+      <div class="mod"><div class="mod-n">MODULO 05</div><h3>La Tua Prima Canzone</h3><p>Tutorial completi passo-passo sui brani più amati, dal pop italiano alle ballad internazionali. Scegli, segui, suona.</p><span class="dur">▶ 4 video · 10 min + libreria</span></div>
+      <div class="mod"><div class="mod-n">SEMPRE INCLUSO</div><h3>Aggiornamenti a Vita</h3><p>Ogni nuovo tutorial, ogni nuova canzone aggiunta alla libreria, ogni miglioramento del corso: tuo, per sempre, senza costi extra.</p><span class="dur">∞ Accesso illimitato</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ======= DREAM ======= -->
+<section class="sec dream" id="sogno">
+  <div class="container">
+    <div class="reveal">
+      <div class="eyebrow" style="justify-content:center">Chiudi gli occhi un secondo</div>
+      <h2>Immagina la scena,<br>tra <span class="hl">30 giorni</span> da oggi</h2>
+      <p class="section-sub" style="margin:0 auto">Non tra dieci anni. Non "un giorno". Trenta giorni.</p>
+    </div>
+    <div class="dream-list stagger">
+      <div class="dream-item"><span class="em">🌙</span><p>È sera. Ti siedi al piano e le mani <b>sanno dove andare</b>. Suoni per te, per staccare, per stare bene. Il tuo momento.</p></div>
+      <div class="dream-item"><span class="em">🎂</span><p>Alla festa qualcuno indica il pianoforte e scherza: «dai, suona qualcosa». Stavolta <b>ti siedi davvero</b> — e parte il coro.</p></div>
+      <div class="dream-item"><span class="em">📻</span><p>Passa una canzone alla radio e il tuo orecchio la <b>smonta da solo</b>: «questo è il giro di Do...». La sera la stai già suonando.</p></div>
+      <div class="dream-item"><span class="em">👶</span><p>I tuoi figli (o nipoti) ti guardano suonare e vogliono provare anche loro. Hai appena <b>regalato la musica</b> a qualcun altro.</p></div>
+      <div class="dream-item"><span class="em">🎁</span><p>Impari in segreto la <b>canzone speciale</b> di qualcuno che ami. E gliela suoni davanti, dal vivo. Quel momento non lo dimenticherete.</p></div>
+      <div class="dream-item"><span class="em">✨</span><p>Ripensi a quando dicevi «non sono portato» e sorridi. Non era vero. <b>Mancava solo il metodo giusto.</b></p></div>
+    </div>
+    <div class="center reveal" style="margin-top:54px">
+      <a href="#offerta" class="btn btn-giallo">Voglio che questa sia la mia storia</a>
+    </div>
+  </div>
+</section>
+
+<!-- ======= TESTIMONIANZE ======= -->
+<section class="sec sec-light" id="testimonianze">
+  <div class="container">
+    <div class="center reveal">
+      <div class="eyebrow" style="justify-content:center">Parola a chi ha iniziato da zero</div>
+      <h2>«Non pensavo di riuscirci.<br>Poi ho suonato la mia prima canzone.»</h2>
+      <p class="section-sub">Studenti veri, partiti esattamente da dove sei tu adesso.</p>
+    </div>
+    <div class="testi-grid stagger">
+      <div class="testi"><div class="stars">★★★★★</div><p>"A 54 anni pensavo fosse tardi. Al minuto 40 suonavo il giro di Do, dopo una settimana ho suonato 'Albachiara' a mia moglie. Si è commossa. Io pure."</p><div class="testi-author"><div class="testi-avatar">R</div><div><b>Roberto M.</b><small>54 anni · Padova</small></div></div></div>
+      <div class="testi"><div class="stars">★★★★★</div><p>"Avevo mollato il piano da ragazzina per colpa del solfeggio. Qui è tutto al contrario: prima suoni, poi capisci. In un weekend ho fatto più progressi che in un anno di lezioni."</p><div class="testi-author"><div class="testi-avatar">F</div><div><b>Francesca T.</b><small>37 anni · Vicenza</small></div></div></div>
+      <div class="testi"><div class="stars">★★★★★</div><p>"La parte sull'orecchio è pazzesca. Ora sento una canzone in macchina e capisco gli accordi. Mia figlia dice che sono diventato 'quello che suona tutto'."</p><div class="testi-author"><div class="testi-avatar">D</div><div><b>Davide C.</b><small>45 anni · Treviso</small></div></div></div>
+      <div class="testi"><div class="stars">★★★★★</div><p>"Comprato per mio figlio di 13 anni, lo uso più io. Le lezioni sono brevi e chiarissime, le riguardi quando vuoi. La garanzia mi ha convinto a provare: non l'ho usata."</p><div class="testi-author"><div class="testi-avatar">S</div><div><b>Silvia B.</b><small>41 anni · Venezia</small></div></div></div>
+      <div class="testi"><div class="stars">★★★★★</div><p>"Zero basi musicali, mani 'di legno' secondo me. Al minuto 100 esatto ho suonato 'Someone Like You' — versione semplificata, ma era LEI. Ho registrato il video e l'ho mandato a tutti."</p><div class="testi-author"><div class="testi-avatar">M</div><div><b>Marco P.</b><small>29 anni · Milano</small></div></div></div>
+      <div class="testi"><div class="stars">★★★★★</div><p>"Insegno alle superiori e sono rimasta colpita dalla didattica: progressiva, motivante, mai frustrante. È il corso che avrei voluto trovare vent'anni fa."</p><div class="testi-author"><div class="testi-avatar">E</div><div><b>Elena R.</b><small>48 anni · Verona</small></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ======= PER CHI È / NON È ======= -->
+<section class="sec">
+  <div class="container">
+    <div class="center reveal">
+      <div class="eyebrow" style="justify-content:center">Onestà prima di tutto</div>
+      <h2>Questo corso è per te?</h2>
+      <p class="section-sub">Non vogliamo studenti delusi. Leggi con attenzione: se sei nella colonna sbagliata, non comprarlo.</p>
+    </div>
+    <div class="forwho">
+      <div class="vs-col vs-new reveal-left">
+        <span class="vs-tag">✓ Fa per te se...</span>
+        <h3>Vuoi suonare per la vita, non per il diploma</h3>
+        <ul>
+          <li>Parti <b>da zero assoluto</b> (o hai mollato anni fa)</li>
+          <li>Vuoi suonare <b>le canzoni che ami</b>, non esercizi</li>
+          <li>Hai poco tempo e ti serve un metodo <b>diretto</b></li>
+          <li>Sogni di <b>riconoscere a orecchio</b> le canzoni che senti</li>
+          <li>Hai (o puoi procurarti) una tastiera o un piano qualsiasi</li>
+        </ul>
+      </div>
+      <div class="vs-col vs-old reveal-right">
+        <span class="vs-tag">✕ NON fa per te se...</span>
+        <h3>Cerchi il conservatorio in pillole</h3>
+        <ul>
+          <li>Vuoi diventare un <b>concertista classico</b>: lì serve il percorso tradizionale</li>
+          <li>Cerchi la bacchetta magica <b>senza toccare il piano</b>: i 100 minuti sono di pratica vera</li>
+          <li>Vuoi imparare a leggere spartiti complessi da subito</li>
+          <li>Pensi che "a orecchio" significhi "senza impegno"</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======= CHI SIAMO ======= -->
+<section class="sec sec-darker" id="chisiamo">
+  <div class="container chisiamo-grid">
+    <div class="reveal-left">
+      <div class="eyebrow">Chi c'è dietro</div>
+      <h2>Uno dei più grandi negozi di strumenti musicali d'Italia</h2>
+      <p class="section-sub" style="margin-bottom:18px">Siamo <b style="color:#fff">Piazzo Strumenti Musicali</b>: un punto di riferimento per i musicisti di tutto il Nord Italia. Nel nostro showroom di Mestrino (Padova) trovi <b style="color:#fff">migliaia di strumenti esposti</b> — con un intero reparto dedicato a pianoforti acustici, digitali e tastiere — e uno staff di musicisti che ogni giorno segue centinaia di clienti, dal principiante assoluto al professionista.</p>
+      <p class="section-sub" style="margin-bottom:18px">In tutti questi anni abbiamo visto migliaia di persone camminare tra i nostri pianoforti con gli occhi che brillano... e andarsene convinte di "non essere capaci". Questo corso nasce per loro. Per te.</p>
+      <p class="section-sub">Non siamo una piattaforma anonima: dietro questo corso c'è una struttura vera, con un telefono vero e persone vere che rispondono. <b style="color:#fff">Se ti serve una mano, sai dove trovarci.</b></p>
+    </div>
+    <div class="reveal-right">
+      <div style="background:var(--nero-3);border:1px solid rgba(255,244,4,.35);border-radius:26px;padding:44px 40px;text-align:center">
+        <div class="logo-keys" style="height:56px;margin:0 auto 22px;width:max-content"><span style="width:17px"></span><i style="width:11px;margin:0 -6.5px"></i><span style="width:17px"></span><i style="width:11px;margin:0 -6.5px"></i><span style="width:17px"></span><span style="width:17px"></span><i style="width:11px;margin:0 -6.5px"></i><span style="width:17px"></span><i style="width:11px;margin:0 -6.5px"></i><span style="width:17px"></span></div>
+        <div style="font-weight:900;font-size:26px;letter-spacing:.08em;color:var(--giallo)">A. PIAZZO</div>
+        <div style="font-size:12px;letter-spacing:.26em;color:var(--grigio);text-transform:uppercase;margin-bottom:24px">Strumenti Musicali</div>
+        <p style="font-size:15px;color:var(--grigio-chiaro);line-height:1.8">📍 Via G. Galilei 45, Mestrino (PD)<br>📞 049 9000348<br>✉️ info@piazzostrumenti.it</p>
+        <p style="margin-top:20px;font-size:13.5px;color:var(--grigio)">Vieni a trovarci: la prima prova su un piano vero te la offriamo noi. ☕</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======= OFFERTA ======= -->
+<section class="sec" id="offerta">
+  <div class="container">
+    <div class="center reveal">
+      <div class="eyebrow" style="justify-content:center">L'offerta di lancio</div>
+      <h2>Tutto questo, a meno di<br>una <span class="yellow-text">singola lezione privata</span></h2>
+    </div>
+    <div class="offer-box reveal">
+      <div class="offer-ribbon">🔥 Offerta di lancio −67%</div>
+      <h3 class="offer-title">Piano in 100 Minuti — Corso Completo</h3>
+      <p class="offer-sub">Accesso immediato, da qualsiasi dispositivo, per sempre.</p>
+      <ul class="offer-list">
+        <li><span><b>Il corso completo</b> — 5 moduli, 26 video-lezioni passo-passo <s>(valore 197€)</s></span></li>
+        <li><span><b>Libreria canzoni</b> con tutorial dei brani più amati, in crescita ogni mese <s>(valore 97€)</s></span></li>
+        <li><span><b>Ear Training Pack</b> — esercizi audio per allenare l'orecchio ovunque <s>(valore 47€)</s></span></li>
+        <li><span><b>BONUS 1:</b> "Il Giro Giusto" — prontuario PDF dei giri armonici delle hit italiane e internazionali <s>(valore 27€)</s></span></li>
+        <li><span><b>BONUS 2:</b> Checklist stampabile dei 100 minuti, per non perdere mai il filo <s>(valore 17€)</s></span></li>
+        <li><span><b>BONUS 3:</b> Buono sconto del 10% su tastiere e pianoforti nel nostro negozio di Mestrino e online</span></li>
+        <li><span><b>Aggiornamenti a vita</b> inclusi — paghi una volta sola</span></li>
+      </ul>
+      <hr class="offer-divider">
+      <div class="price-row">
+        <span class="price-old">297€</span>
+        <span class="price-new">97€</span>
+      </div>
+      <p class="price-note">Pagamento unico · Nessun abbonamento, nessun rinnovo automatico</p>
+      <a href="#" class="btn btn-giallo" id="buy-btn">🎹 Sì, voglio suonare — Inizia ora</a>
+      <div class="secure-row">
+        <span>🔒 Pagamento sicuro</span>
+        <span>⚡ Accesso immediato</span>
+        <span>🛡️ Garanzia 30 giorni</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======= GARANZIA ======= -->
+<section class="sec sec-darker" id="garanzia">
+  <div class="container">
+    <div class="garanzia reveal">
+      <div class="seal" aria-hidden="true">
+        <svg viewBox="0 0 200 200">
+          <g class="spin">
+            <circle cx="100" cy="100" r="96" fill="none" stroke="#FFF404" stroke-width="2" stroke-dasharray="4 7"/>
+            <path id="circlePath" d="M 100,100 m -74,0 a 74,74 0 1,1 148,0 a 74,74 0 1,1 -148,0" fill="none"/>
+            <text fill="#FFF404" font-size="14.5" font-weight="700" letter-spacing="3.5">
+              <textPath href="#circlePath">GARANZIA SUONI O RIMBORSATO · 30 GIORNI · </textPath>
+            </text>
+          </g>
+          <circle cx="100" cy="100" r="56" fill="#FFF404"/>
+          <text x="100" y="92" text-anchor="middle" font-size="30" font-weight="900" fill="#0b0b0d">30</text>
+          <text x="100" y="114" text-anchor="middle" font-size="13" font-weight="800" fill="#0b0b0d" letter-spacing="1">GIORNI</text>
+          <text x="100" y="130" text-anchor="middle" font-size="10" font-weight="600" fill="#0b0b0d">100% rimborso</text>
+        </svg>
+      </div>
+      <div>
+        <div class="eyebrow">Rischio zero, davvero</div>
+        <h2>Garanzia «Suoni o Rimborsato»</h2>
+        <p>Segui il corso. Fai i tuoi 100 minuti. Se alla fine non stai suonando la tua prima canzone — o semplicemente il metodo non ti convince — scrivici entro <b>30 giorni</b> e ti rimborsiamo <b>il 100%</b>, senza domande, senza moduli infiniti, senza «ma».</p>
+        <p style="margin-top:12px">Una email e riavrai i tuoi soldi. Il rischio ce lo prendiamo tutto noi: <b>tu puoi solo scoprire se il pianoforte fa per te.</b> (Ti anticipiamo la risposta: sì.)</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======= FAQ ======= -->
+<section class="sec" id="faq">
+  <div class="container">
+    <div class="center reveal">
+      <div class="eyebrow" style="justify-content:center">Domande frequenti</div>
+      <h2>Tutto quello che vuoi sapere<br>prima di iniziare</h2>
+    </div>
+    <div class="faq-list reveal">
+      <details class="faq"><summary>Davvero posso suonare una canzone in soli 100 minuti?</summary><div class="faq-body">Sì — ed ecco cosa intendiamo esattamente: dopo 100 minuti di pratica guidata seguendo il metodo, suonerai <b>una canzone completa in versione accompagnamento + melodia semplificata</b>. Non sarai Ludovico Einaudi (nemmeno lui lo era, ai suoi primi 100 minuti), ma suonerai musica vera, riconoscibile, che emoziona. Ed è quello il momento in cui capisci che ce la puoi fare.</div></details>
+      <details class="faq"><summary>Parto da zero assoluto. È un problema?</summary><div class="faq-body">È esattamente per te che è stato pensato il corso. Si parte dal presupposto che tu <b>non abbia mai toccato un pianoforte</b> e non sappia leggere una nota. Ogni concetto è mostrato a schermo, ripetibile all'infinito, senza fretta.</div></details>
+      <details class="faq"><summary>Serve un pianoforte vero? Non ce l'ho...</summary><div class="faq-body">No: per iniziare basta <b>una tastiera qualsiasi</b>, anche economica, anche usata. E con l'acquisto ricevi un buono del 10% sul nostro catalogo di tastiere e pianoforti digitali: se vuoi un consiglio su misura, chiamaci in negozio — è il nostro mestiere da sempre.</div></details>
+      <details class="faq"><summary>Non ho orecchio musicale, sono negato...</summary><div class="faq-body">L'orecchio musicale <b>non è un dono di nascita: è un muscolo</b>. Il modulo di ear training parte dal livello "non distinguo due note" e ti porta, con esercizi progressivi, a riconoscere accordi maggiori e minori e i giri armonici delle canzoni. È la parte del corso che gli studenti definiscono "magica".</div></details>
+      <details class="faq"><summary>Quanto tempo ho per completare il corso?</summary><div class="faq-body"><b>Tutto il tempo che vuoi: l'accesso è a vita.</b> Puoi fare i 100 minuti in un pomeriggio o spalmarli in due settimane, 10 minuti a sera. Il corso si adatta alla tua vita, non il contrario.</div></details>
+      <details class="faq"><summary>Sono "troppo grande" per imparare?</summary><div class="faq-body">I nostri studenti hanno dai 13 agli 81 anni, e la fascia più numerosa è quella <b>tra i 40 e i 60</b>. Da adulto hai anzi due vantaggi enormi: sai perché lo stai facendo e sai ascoltare. Il mito del "si impara solo da piccoli" vale per i concertisti, non per chi vuole suonare le canzoni che ama.</div></details>
+      <details class="faq"><summary>Come funziona esattamente la garanzia?</summary><div class="faq-body">Hai <b>30 giorni</b> dall'acquisto. Se il corso non ti convince — qualunque sia il motivo — mandi una email a info@piazzostrumenti.it e ricevi il <b>rimborso del 100%</b>. Nessun modulo, nessuna giustificazione richiesta, nessuna trattenuta.</div></details>
+      <details class="faq"><summary>Come accedo al corso dopo l'acquisto?</summary><div class="faq-body">Subito dopo il pagamento ricevi una email con le tue credenziali. Il corso si guarda da <b>computer, tablet o smartphone</b> — l'ideale è mettere il telefono sul leggio della tastiera e seguire le lezioni tasto per tasto.</div></details>
+    </div>
+  </div>
+</section>
+
+<!-- ======= FINAL CTA ======= -->
+<section class="final">
+  <div class="container">
+    <div class="reveal">
+      <div class="eyebrow" style="justify-content:center">L'ultima nota spetta a te</div>
+      <h2>Tra un mese potresti <span class="hl">saper suonare</span>.<br>Oppure essere ancora qui a pensarci.</h2>
+      <p class="section-sub">100 minuti. 4 accordi. Una garanzia totale di 30 giorni.<br>L'unica cosa che può andare storta è non provarci.</p>
+      <a href="#offerta" class="btn btn-giallo" style="font-size:19px;padding:21px 46px">🎹 Inizia i tuoi 100 minuti</a>
+      <span class="btn-note">✓ 97€ invece di 297€ &nbsp;·&nbsp; ✓ Accesso a vita &nbsp;·&nbsp; ✓ Rimborso garantito 30 giorni</span>
+    </div>
+  </div>
+</section>
+
+<!-- ======= FOOTER ======= -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a class="logo" href="#top" style="margin-bottom:18px;display:inline-flex">
+          <span class="logo-keys" aria-hidden="true"><span></span><i></i><span></span><i></i><span></span><span></span><i></i><span></span></span>
+          <span class="logo-text"><b>A. PIAZZO</b><small>Strumenti Musicali</small></span>
+        </a>
+        <p>Uno dei più grandi negozi di strumenti musicali d'Italia. Migliaia di strumenti, uno staff di musicisti e ora anche la formazione, dal nostro showroom di Mestrino (Padova).</p>
+      </div>
+      <div>
+        <h4>Contatti</h4>
+        <p>Via G. Galilei, 45<br>35035 Mestrino (PD)</p>
+        <p><a href="tel:0499000348">049 9000348</a><br>
+        <a href="mailto:info@piazzostrumenti.it">info@piazzostrumenti.it</a></p>
+      </div>
+      <div>
+        <h4>Link utili</h4>
+        <p>
+          <a href="#metodo">Il Metodo</a><br>
+          <a href="#percorso">I 100 Minuti</a><br>
+          <a href="#garanzia">Garanzia 30 giorni</a><br>
+          <a href="#faq">FAQ</a>
+        </p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> Piazzo Strumenti Musicali — Tutti i diritti riservati</span>
+      <span>P.IVA · Privacy Policy · Cookie Policy · Termini e Condizioni</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ======= STICKY CTA ======= -->
+<div class="sticky-cta" id="stickyCta">
+  <div class="sc-text"><b>Piano in 100 Minuti</b> <span>— 97€ invece di 297€ · Garanzia 30 giorni</span></div>
+  <a href="#offerta" class="btn btn-giallo">Inizia ora</a>
+</div>
+
+<script>
+/* ---------- reveal on scroll ---------- */
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      if (e.target.classList.contains('stagger')) {
+        [...e.target.children].forEach((c, i) => c.style.transitionDelay = (i * 90) + 'ms');
+      }
+      io.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.14 });
+document.querySelectorAll('.reveal,.reveal-left,.reveal-right,.stagger').forEach(el => io.observe(el));
+
+/* ---------- counters ---------- */
+const cio = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    const el = e.target, target = +el.dataset.target, dur = 1600, t0 = performance.now();
+    const tick = now => {
+      const p = Math.min((now - t0) / dur, 1);
+      el.textContent = Math.round(target * (1 - Math.pow(1 - p, 3))).toLocaleString('it-IT');
+      if (p < 1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+    cio.unobserve(el);
+  });
+}, { threshold: 0.6 });
+document.querySelectorAll('.counter').forEach(el => cio.observe(el));
+
+/* ---------- interactive piano (Web Audio) ---------- */
+const NOTES = [
+  {n:'C4', f:261.63, b:true, bf:277.18},
+  {n:'D4', f:293.66, b:true, bf:311.13},
+  {n:'E4', f:329.63, b:false},
+  {n:'F4', f:349.23, b:true, bf:369.99},
+  {n:'G4', f:392.00, b:true, bf:415.30},
+  {n:'A4', f:440.00, b:true, bf:466.16},
+  {n:'B4', f:493.88, b:false},
+  {n:'C5', f:523.25, b:true, bf:554.37},
+  {n:'D5', f:587.33, b:true, bf:622.25},
+  {n:'E5', f:659.25, b:false},
+  {n:'F5', f:698.46, b:true, bf:739.99},
+  {n:'G5', f:783.99, b:false}
+];
+const piano = document.getElementById('piano');
+let ac = null;
+function playTone(freq){
+  try{
+    ac = ac || new (window.AudioContext || window.webkitAudioContext)();
+    if (ac.state === 'suspended') ac.resume();
+    const t = ac.currentTime;
+    const g = ac.createGain();
+    g.gain.setValueAtTime(0.0001, t);
+    g.gain.exponentialRampToValueAtTime(0.22, t + 0.015);
+    g.gain.exponentialRampToValueAtTime(0.0001, t + 1.4);
+    g.connect(ac.destination);
+    [[1,0.2],[2,0.07],[3,0.03]].forEach(([mult, amp]) => {
+      const o = ac.createOscillator();
+      o.type = 'sine'; o.frequency.value = freq * mult;
+      const og = ac.createGain(); og.gain.value = amp / 0.2 * 1;
+      o.connect(og); og.connect(g);
+      o.start(t); o.stop(t + 1.5);
+    });
+  }catch(e){}
+}
+function pressKey(el, freq){
+  playTone(freq);
+  el.classList.add('active');
+  setTimeout(() => el.classList.remove('active'), 220);
+}
+NOTES.forEach(note => {
+  const w = document.createElement('div');
+  w.className = 'key-w';
+  w.addEventListener('pointerdown', ev => { ev.preventDefault(); pressKey(w, note.f); });
+  if (note.b) {
+    const b = document.createElement('div');
+    b.className = 'key-b';
+    b.addEventListener('pointerdown', ev => { ev.stopPropagation(); ev.preventDefault(); pressKey(b, note.bf); });
+    w.appendChild(b);
+  }
+  piano.appendChild(w);
+});
+
+/* auto-play demo: silent visual sequence until first interaction */
+const wKeys = [...piano.querySelectorAll('.key-w')];
+const demoSeq = [0,2,4,5,4,2,0, 3,5,7,8,7,5,3];
+let demoI = 0, userPlayed = false;
+piano.addEventListener('pointerdown', () => userPlayed = true, { once:true });
+setInterval(() => {
+  if (userPlayed || document.hidden) return;
+  const k = wKeys[demoSeq[demoI % demoSeq.length]];
+  if (k){ k.classList.add('active'); setTimeout(() => k.classList.remove('active'), 260); }
+  demoI++;
+}, 480);
+
+/* ---------- floating notes in hero ---------- */
+const hero = document.querySelector('.hero');
+const glyphs = ['♪','♫','♩','♬'];
+for (let i = 0; i < 14; i++){
+  const s = document.createElement('span');
+  s.className = 'note-float';
+  s.textContent = glyphs[i % glyphs.length];
+  s.style.left = (4 + (i * 6.8) % 92) + '%';
+  s.style.bottom = '-8vh';
+  s.style.fontSize = (16 + (i * 7) % 26) + 'px';
+  s.style.animationDuration = (11 + (i * 3.7) % 14) + 's';
+  s.style.animationDelay = (-(i * 2.9) % 20) + 's';
+  hero.appendChild(s);
+}
+
+/* ---------- marquee duplicate ---------- */
+const mq = document.getElementById('marquee');
+mq.innerHTML += mq.innerHTML;
+
+/* ---------- sticky cta ---------- */
+const sticky = document.getElementById('stickyCta');
+const offerSec = document.getElementById('offerta');
+window.addEventListener('scroll', () => {
+  const past = window.scrollY > window.innerHeight * 0.9;
+  const offerRect = offerSec.getBoundingClientRect();
+  const onOffer = offerRect.top < window.innerHeight && offerRect.bottom > 0;
+  sticky.classList.toggle('show', past && !onOffer);
+}, { passive:true });
+
+/* ---------- year ---------- */
+document.getElementById('year').textContent = new Date().getFullYear();
+
+/* ---------- buy button placeholder ---------- */
+document.getElementById('buy-btn').addEventListener('click', e => {
+  e.preventDefault();
+  alert('Collega qui il tuo link di pagamento (Stripe, PayPal, ThriveCart...) sostituendo l\'href del bottone #buy-btn in index.html');
+});
+</script>
+</body>
+</html>
