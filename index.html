@@ -379,9 +379,38 @@ nav.deskmenu a:hover{color:var(--giallo)}
 .forwho{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:54px}
 @media(max-width:820px){.forwho{grid-template-columns:1fr}}
 
-/* ---------- chi siamo ---------- */
-.chisiamo-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+/* ---------- chi siamo / maestro ---------- */
+.chisiamo-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:60px;align-items:center}
 @media(max-width:900px){.chisiamo-grid{grid-template-columns:1fr;gap:44px}}
+.maestro-photo{
+  position:relative;border-radius:26px;overflow:hidden;
+  border:1px solid rgba(255,244,4,.4);
+  box-shadow:0 20px 70px rgba(255,244,4,.1);
+}
+.maestro-photo img{display:block;width:100%;height:auto}
+.maestro-plate{
+  position:absolute;bottom:0;left:0;right:0;padding:26px 24px 20px;
+  background:linear-gradient(transparent, rgba(11,11,13,.94) 60%);
+}
+.maestro-plate b{display:block;font-size:23px;font-weight:900;color:var(--giallo);letter-spacing:.02em}
+.maestro-plate span{font-size:13px;color:var(--grigio-chiaro);letter-spacing:.08em;text-transform:uppercase}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.chips span{
+  font-size:11.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  padding:6px 14px;border-radius:20px;
+  border:1px solid rgba(255,244,4,.35);color:var(--giallo);
+}
+.store-strip{
+  margin-top:64px;display:grid;grid-template-columns:auto 1fr auto;gap:30px;align-items:center;
+  background:var(--nero-3);border:1px solid rgba(255,255,255,.1);
+  border-radius:20px;padding:32px 36px;
+}
+@media(max-width:900px){.store-strip{grid-template-columns:1fr;text-align:center;justify-items:center;gap:20px}}
+.store-strip p{color:var(--grigio);font-size:15px;max-width:560px}
+.store-strip p b{color:var(--bianco)}
+.store-contacts{font-size:14px;color:var(--grigio-chiaro);line-height:2;white-space:nowrap}
+.store-contacts a{text-decoration:none}
+.store-contacts a:hover{color:var(--giallo)}
 
 /* ---------- offerta ---------- */
 .offer-box{
@@ -771,19 +800,33 @@ footer a:hover{color:var(--giallo)}
 <section class="sec sec-darker" id="chisiamo">
   <div class="container chisiamo-grid">
     <div class="reveal-left">
-      <div class="eyebrow">Chi c'è dietro</div>
-      <h2>Uno dei più grandi negozi di strumenti musicali d'Italia</h2>
-      <p class="section-sub" style="margin-bottom:18px">Siamo <b style="color:#fff">Piazzo Strumenti Musicali</b>: un punto di riferimento per i musicisti di tutto il Nord Italia. Nel nostro showroom di Mestrino (Padova) trovi <b style="color:#fff">migliaia di strumenti esposti</b> — con un intero reparto dedicato a pianoforti acustici, digitali e tastiere — e uno staff di musicisti che ogni giorno segue centinaia di clienti, dal principiante assoluto al professionista.</p>
-      <p class="section-sub" style="margin-bottom:18px">In tutti questi anni abbiamo visto migliaia di persone camminare tra i nostri pianoforti con gli occhi che brillano... e andarsene convinte di "non essere capaci". Questo corso nasce per loro. Per te.</p>
-      <p class="section-sub">Non siamo una piattaforma anonima: dietro questo corso c'è una struttura vera, con un telefono vero e persone vere che rispondono. <b style="color:#fff">Se ti serve una mano, sai dove trovarci.</b></p>
+      <div class="maestro-photo">
+        <img src="maestro-john-bellavia.webp" alt="John Bellavia dal vivo alle tastiere" loading="lazy">
+        <div class="maestro-plate">
+          <b>John Bellavia</b>
+          <span>Pianista · Compositore · Arrangiatore</span>
+        </div>
+      </div>
+      <div class="chips" aria-label="Generi musicali">
+        <span>Swing</span><span>Cool Jazz</span><span>Jazz Fusion</span><span>Latin Jazz</span><span>Jazz Funk</span><span>Hard Rock</span>
+      </div>
     </div>
     <div class="reveal-right">
-      <div style="background:var(--nero-3);border:1px solid rgba(255,244,4,.35);border-radius:26px;padding:44px 40px;text-align:center">
-        <div class="logo-keys" style="height:56px;margin:0 auto 22px;width:max-content"><span style="width:17px"></span><i style="width:11px;margin:0 -6.5px"></i><span style="width:17px"></span><i style="width:11px;margin:0 -6.5px"></i><span style="width:17px"></span><span style="width:17px"></span><i style="width:11px;margin:0 -6.5px"></i><span style="width:17px"></span><i style="width:11px;margin:0 -6.5px"></i><span style="width:17px"></span></div>
-        <div style="font-weight:900;font-size:26px;letter-spacing:.08em;color:var(--giallo)">A. PIAZZO</div>
-        <div style="font-size:12px;letter-spacing:.26em;color:var(--grigio);text-transform:uppercase;margin-bottom:24px">Strumenti Musicali</div>
-        <p style="font-size:15px;color:var(--grigio-chiaro);line-height:1.8">📍 Via G. Galilei 45, Mestrino (PD)<br>📞 049 9000348<br>✉️ info@piazzostrumenti.it</p>
-        <p style="margin-top:20px;font-size:13.5px;color:var(--grigio)">Vieni a trovarci: la prima prova su un piano vero te la offriamo noi. ☕</p>
+      <div class="eyebrow">Chi c'è dietro</div>
+      <h2>Il tuo maestro:<br><span class="yellow-text">John Bellavia</span></h2>
+      <p class="section-sub" style="margin-bottom:18px">Pianista, tastierista, compositore e arrangiatore: John ha passato <b style="color:#fff">più di quarant'anni tra palchi e studi di registrazione</b>, attraversando tutto il jazz — dallo swing alla fusion, dal latin al jazz funk — fino all'hard rock. La musica non l'ha solo studiata: la vive, ogni sera.</p>
+      <p class="section-sub" style="margin-bottom:18px">E qui sta la differenza. John non insegna come si insegna a scuola: insegna <b style="color:#fff">come si impara sul palco</b>, dove contano le poche cose che ti fanno suonare davvero — gli accordi giusti, il ritmo giusto, l'orecchio. Le stesse che trovi distillate nei 100 minuti di questo corso.</p>
+      <p class="section-sub">Fonico e produttore (registra concerti dal vivo in 16 tracce separate), da anni insegna pianoforte, tastiere e i segreti dell'armonia a chi parte da zero assoluto. Il suo talento più raro? <b style="color:#fff">Far sembrare semplice quello che altrove sembra impossibile.</b></p>
+    </div>
+  </div>
+  <div class="container">
+    <div class="store-strip reveal">
+      <div class="logo-keys" style="height:48px;width:max-content" aria-hidden="true"><span style="width:15px"></span><i style="width:9px;margin:0 -5.5px"></i><span style="width:15px"></span><i style="width:9px;margin:0 -5.5px"></i><span style="width:15px"></span><span style="width:15px"></span><i style="width:9px;margin:0 -5.5px"></i><span style="width:15px"></span><i style="width:9px;margin:0 -5.5px"></i><span style="width:15px"></span></div>
+      <p>Il corso nasce dentro <b>Piazzo Strumenti Musicali</b>, uno dei più grandi negozi di strumenti d'Italia: migliaia di strumenti esposti a Mestrino (Padova), un intero reparto pianoforti e uno staff di musicisti. Non una piattaforma anonima: <b>un telefono vero e persone vere che rispondono.</b></p>
+      <div class="store-contacts">
+        📍 Via G. Galilei 45, Mestrino (PD)<br>
+        📞 <a href="tel:0499000348">049 9000348</a><br>
+        ✉️ <a href="mailto:info@piazzostrumenti.it">info@piazzostrumenti.it</a>
       </div>
     </div>
   </div>
