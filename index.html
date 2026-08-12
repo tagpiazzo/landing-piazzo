@@ -354,6 +354,32 @@ nav.deskmenu a:hover{color:var(--giallo)}
   background:rgba(255,255,255,.07);padding:6px 14px;border-radius:20px;
 }
 
+/* ---------- offerta spiegata (righe alternate) ---------- */
+.offer-rows{display:flex;flex-direction:column;gap:90px;margin-top:90px}
+.offer-row{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
+.offer-row:nth-child(even) .offer-row-img{order:2}
+.offer-row-img{
+  border-radius:26px;overflow:hidden;
+  border:1px solid rgba(255,244,4,.35);
+  box-shadow:0 20px 70px rgba(255,244,4,.1);
+  background:var(--nero-3);
+}
+.offer-row-img img{display:block;width:100%;height:auto}
+.offer-row-txt .row-tag{
+  display:inline-block;font-size:12px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;
+  background:rgba(255,244,4,.12);color:var(--giallo);
+  padding:7px 16px;border-radius:30px;margin-bottom:20px;
+}
+.offer-row-txt h3{font-size:clamp(24px,3vw,34px);margin-bottom:16px;line-height:1.15}
+.offer-row-txt p{color:var(--grigio);font-size:16.5px;margin-bottom:12px}
+.offer-row-txt p b{color:var(--bianco)}
+.offer-row-txt .row-note{font-size:14px;color:var(--giallo);font-weight:600}
+@media(max-width:860px){
+  .offer-rows{gap:60px}
+  .offer-row{grid-template-columns:1fr;gap:28px}
+  .offer-row:nth-child(even) .offer-row-img{order:0}
+}
+
 /* ---------- dream ---------- */
 .dream{
   background:
@@ -745,6 +771,40 @@ footer a:hover{color:var(--giallo)}
       <div class="mod"><div class="mod-n">MODULO 05</div><h3>La Tua Prima Canzone</h3><p>Tutorial completi passo-passo sui brani più amati, dal pop italiano alle ballad internazionali. Scegli, segui, suona.</p><span class="dur">▶ 4 video · 10 min + libreria</span></div>
       <div class="mod"><div class="mod-n">SEMPRE INCLUSO</div><h3>Aggiornamenti a Vita</h3><p>Ogni nuovo tutorial, ogni nuova canzone aggiunta alla libreria, ogni miglioramento del corso: tuo, per sempre, senza costi extra.</p><span class="dur">∞ Accesso illimitato</span></div>
     </div>
+
+    <div class="offer-rows">
+      <div class="offer-row">
+        <div class="offer-row-img reveal-left"><img src="offer-lezioni.webp" alt="Video-lezione di pianoforte seguita dallo smartphone sul leggio" loading="lazy"></div>
+        <div class="offer-row-txt reveal-right">
+          <span class="row-tag">Il corso</span>
+          <h3>26 video-lezioni che vanno dritte al punto</h3>
+          <p>Metti il telefono sul leggio, premi play e segui tasto per tasto. Ogni lezione è <b>breve, chiara e riguardabile all'infinito</b>: dalla mappa della tastiera alla tua prima canzone completa, senza mai un minuto di teoria inutile.</p>
+          <p>E con la <b>libreria di tutorial sulle canzoni più amate</b> — in crescita ogni mese — la seconda, terza e decima canzone arrivano da sole.</p>
+          <span class="row-note">▶ 5 moduli · 26 video · da zero assoluto</span>
+        </div>
+      </div>
+      <div class="offer-row">
+        <div class="offer-row-img reveal-right"><img src="offer-bonus.webp" alt="I tre bonus del corso: prontuario, checklist e buono sconto" loading="lazy"></div>
+        <div class="offer-row-txt reveal-left">
+          <span class="row-tag">I 3 bonus</span>
+          <h3>Gli acceleratori che ti tolgono ogni scusa</h3>
+          <p><b>"Il Giro Giusto"</b>: il prontuario PDF con i giri armonici delle hit italiane e internazionali — apri, guardi, suoni. <b>La checklist stampabile dei 100 minuti</b>, per sapere sempre a che punto sei e cosa viene dopo.</p>
+          <p>E se ti manca lo strumento: <b>10% di sconto su tastiere e pianoforti</b> da Piazzo, in negozio a Mestrino e online, con i consigli veri del nostro staff.</p>
+          <span class="row-note">🎁 Inclusi nell'offerta di lancio</span>
+        </div>
+      </div>
+      <div class="offer-row">
+        <div class="offer-row-img reveal-left"><img src="offer-vita.webp" alt="Accesso a vita al corso, simbolo infinito sui tasti del pianoforte" loading="lazy"></div>
+        <div class="offer-row-txt reveal-right">
+          <span class="row-tag">Per sempre tuo</span>
+          <h3>Paghi una volta. È tuo per tutta la vita.</h3>
+          <p>Niente abbonamenti, niente rinnovi automatici, niente fretta: <b>accesso a vita da computer, tablet e smartphone</b>. Fai i 100 minuti in un pomeriggio o in due settimane — il corso si adatta a te.</p>
+          <p>E ogni aggiornamento futuro — nuove canzoni, nuove lezioni, nuovi strumenti — <b>è già incluso nel prezzo di oggi</b>. Il corso migliora, tu non paghi più niente.</p>
+          <span class="row-note">∞ Accesso e aggiornamenti a vita · Garanzia 30 giorni</span>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
