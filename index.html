@@ -515,17 +515,11 @@ nav.deskmenu a:hover{color:var(--giallo)}
 .secure-row span{display:flex;align-items:center;gap:6px}
 
 /* ---------- form lead ---------- */
-.form-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:60px;align-items:start;max-width:1000px;margin:60px auto 0}
-@media(max-width:860px){.form-grid{grid-template-columns:1fr;gap:40px}}
-.form-steps{display:flex;flex-direction:column;gap:26px}
-.form-step{display:flex;gap:18px;align-items:flex-start}
-.form-step .n{
-  width:42px;height:42px;border-radius:50%;flex-shrink:0;
-  background:var(--giallo);color:var(--nero);font-weight:900;font-size:18px;
-  display:flex;align-items:center;justify-content:center;
-}
-.form-step b{display:block;font-size:17px;margin-bottom:4px}
-.form-step p{font-size:14.5px;color:var(--grigio)}
+.offer-form-head{text-align:center;margin:30px 0 22px}
+.offer-form-head h4{font-size:21px;font-weight:800;margin-bottom:8px}
+.offer-form-head p{font-size:14.5px;color:var(--grigio);max-width:480px;margin:0 auto}
+.offer-form-head p b{color:var(--bianco)}
+.lead-inline{background:transparent;border:none;padding:0;box-shadow:none;border-radius:0}
 .lead-card{
   background:var(--nero-2);border:2px solid var(--giallo);border-radius:24px;
   padding:38px 34px;box-shadow:0 0 70px rgba(255,244,4,.1);
@@ -1000,35 +994,11 @@ footer a:hover{color:var(--giallo)}
         <span class="price-new">97€</span>
       </div>
       <p class="price-note">Pagamento unico · Nessun abbonamento, nessun rinnovo automatico</p>
-      <a href="#form" class="btn btn-giallo">🎹 Sì, voglio iniziare — Riserva il tuo posto</a>
-      <div class="secure-row">
-        <span>📞 Ti richiamiamo noi</span>
-        <span>✋ Nessun pagamento ora</span>
-        <span>🛡️ Garanzia 30 giorni</span>
+      <div class="offer-form-head">
+        <h4>🔒 Blocca gratuitamente il tuo posto</h4>
+        <p>Nessun pagamento ora: compila il modulo e <b>ti richiamiamo entro 24 ore lavorative</b> per rispondere alle tue domande e attivarti il corso.</p>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- ======= FORM LEAD ======= -->
-<section class="sec sec-darker" id="form">
-  <div class="container">
-    <div class="center reveal">
-      <div class="eyebrow" style="justify-content:center">Riserva il tuo posto</div>
-      <h2>Compila il modulo:<br>ti <span class="yellow-text">richiamiamo noi</span></h2>
-      <p class="section-sub" style="margin:0 auto">Nessun pagamento online, nessun impegno: lasci i tuoi contatti e una persona vera di PianoFacile ti chiama per rispondere alle tue domande e attivarti il corso.</p>
-    </div>
-    <div class="form-grid">
-      <div class="form-steps reveal-left">
-        <div class="form-step"><span class="n">1</span><div><b>Compili il modulo</b><p>30 secondi: nome, telefono, email. Tutto qui.</p></div></div>
-        <div class="form-step"><span class="n">2</span><div><b>Ti chiamiamo entro 24 ore lavorative</b><p>Una chiacchierata senza impegno: rispondiamo alle tue domande, ti consigliamo sullo strumento se ti serve, e se è tutto ok ti attiviamo il corso.</p></div></div>
-        <div class="form-step"><span class="n">3</span><div><b>Inizi i tuoi 100 minuti</b><p>Accesso al corso completo, con la garanzia "Suoni o Rimborsato" di 30 giorni dalla tua attivazione.</p></div></div>
-      </div>
-      <form class="lead-card reveal-right" id="lead-form" action="https://formsubmit.co/info@piazzostrumenti.it" method="POST">
-        <input type="hidden" name="_subject" value="🎹 Nuovo lead PianoFacile">
-        <input type="hidden" name="_template" value="table">
-        <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_next" value="" id="next-url">
+      <form class="lead-card lead-inline" id="form" action="/api/lead" method="POST">
         <label for="f-nome">Nome e cognome</label>
         <input id="f-nome" name="Nome" type="text" placeholder="Mario Rossi" required autocomplete="name">
         <label for="f-tel">Telefono</label>
@@ -1041,9 +1011,13 @@ footer a:hover{color:var(--giallo)}
           <option value="No, mi serve un consiglio">No, mi serve un consiglio</option>
         </select>
         <label class="consent"><input type="checkbox" required><span>Ho letto l'informativa privacy e acconsento a essere ricontattato da Piazzo Strumenti Musicali per l'attivazione del corso.</span></label>
-        <button type="submit" class="btn btn-giallo">📞 Riserva il tuo posto — Richiedi la chiamata</button>
-        <p class="lead-note">🔒 I tuoi dati sono al sicuro · Niente spam, solo la chiamata</p>
+        <button type="submit" class="btn btn-giallo">📞 Blocca il posto — ti richiamiamo noi</button>
       </form>
+      <div class="secure-row">
+        <span>📞 Ti richiamiamo noi</span>
+        <span>✋ Nessun pagamento ora</span>
+        <span>🛡️ Garanzia 30 giorni</span>
+      </div>
     </div>
   </div>
 </section>
@@ -1280,8 +1254,6 @@ window.addEventListener('scroll', () => {
 /* ---------- year ---------- */
 document.getElementById('year').textContent = new Date().getFullYear();
 
-/* ---------- lead form: redirect alla thank you page ---------- */
-document.getElementById('next-url').value = window.location.origin + '/grazie.html';
 </script>
 </body>
 </html>
