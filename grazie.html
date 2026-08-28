@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Richiesta ricevuta! — PianoFacile</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='18' fill='%230b0b0d'/><rect x='16' y='25' width='12' height='50' fill='white'/><rect x='30' y='25' width='12' height='50' fill='white'/><rect x='44' y='25' width='12' height='50' fill='white'/><rect x='58' y='25' width='12' height='50' fill='white'/><rect x='72' y='25' width='12' height='50' fill='%23FFF404'/><rect x='25' y='25' width='8' height='30' fill='%230b0b0d'/><rect x='39' y='25' width='8' height='30' fill='%230b0b0d'/><rect x='67' y='25' width='8' height='30' fill='%230b0b0d'/></svg>">
+<style>
+:root{
+  --nero:#0b0b0d;--nero-2:#141418;--giallo:#FFF404;--bianco:#fff;
+  --grigio:#a3a3ad;--grigio-chiaro:#e8e8ec;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  font-family:'Rubik',sans-serif;background:
+    radial-gradient(900px 500px at 50% 0%, rgba(255,244,4,.12), transparent 60%),
+    var(--nero);
+  color:var(--bianco);line-height:1.6;min-height:100svh;
+  display:flex;flex-direction:column;align-items:center;
+  padding:40px 24px 60px;text-align:center;
+}
+::selection{background:var(--giallo);color:var(--nero)}
+.logo{height:44px;margin-bottom:60px}
+.check{
+  width:96px;height:96px;border-radius:50%;background:var(--giallo);
+  display:flex;align-items:center;justify-content:center;margin-bottom:32px;
+  animation:pop .6s cubic-bezier(.22,1.6,.36,1);
+  box-shadow:0 0 60px rgba(255,244,4,.35);
+}
+.check svg{width:48px;height:48px}
+@keyframes pop{0%{transform:scale(0)}70%{transform:scale(1.15)}100%{transform:scale(1)}}
+h1{font-size:clamp(32px,5.5vw,52px);font-weight:900;letter-spacing:-.02em;line-height:1.1;max-width:700px;margin-bottom:18px}
+h1 span{color:var(--giallo)}
+.sub{font-size:clamp(16px,2.2vw,19px);color:var(--grigio);max-width:560px;margin-bottom:52px}
+.sub b{color:var(--bianco)}
+.steps{
+  display:flex;flex-direction:column;gap:0;max-width:520px;width:100%;
+  background:var(--nero-2);border:1px solid rgba(255,244,4,.35);border-radius:22px;
+  padding:34px 32px;text-align:left;margin-bottom:44px;
+}
+.step{display:flex;gap:16px;padding:14px 0;align-items:flex-start}
+.step+.step{border-top:1px dashed rgba(255,255,255,.12)}
+.step .em{font-size:26px;flex-shrink:0}
+.step b{display:block;font-size:16px;margin-bottom:2px}
+.step p{font-size:14px;color:var(--grigio)}
+.step p a{color:var(--giallo);text-decoration:none;font-weight:600}
+.hint{font-size:14.5px;color:var(--grigio);max-width:480px;margin-bottom:36px}
+.hint b{color:var(--giallo)}
+.back{
+  display:inline-flex;align-items:center;gap:8px;
+  color:var(--grigio);text-decoration:none;font-size:14.5px;font-weight:600;
+  border:1.5px solid rgba(255,255,255,.2);padding:12px 26px;border-radius:40px;
+  transition:border-color .2s,color .2s;
+}
+.back:hover{border-color:var(--giallo);color:var(--giallo)}
+footer{margin-top:auto;padding-top:50px;font-size:13px;color:#63636b}
+footer a{color:#63636b}
+</style>
+</head>
+<body>
+<img class="logo" src="logo-pianofacile.png" alt="PianoFacile">
+
+<div class="check" aria-hidden="true">
+  <svg viewBox="0 0 24 24" fill="none"><path d="M4 12.5l5 5L20 6.5" stroke="#0b0b0d" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</div>
+
+<h1>Fatto! Il tuo posto<br>è <span>riservato</span> 🎹</h1>
+<p class="sub">Abbiamo ricevuto la tua richiesta. Ora rilassati: <b>al resto pensiamo noi.</b></p>
+
+<div class="steps">
+  <div class="step"><span class="em">📞</span><div><b>Ti chiamiamo entro 24 ore lavorative</b><p>Una persona vera del team PianoFacile (niente robot, promesso) ti contatterà al numero che ci hai lasciato.</p></div></div>
+  <div class="step"><span class="em">💬</span><div><b>Rispondiamo a ogni tua domanda</b><p>Sul metodo, sui 100 minuti, sullo strumento giusto se ancora non ce l'hai — con il 10% di sconto su tastiere e pianoforti Piazzo.</p></div></div>
+  <div class="step"><span class="em">🚀</span><div><b>Ti attiviamo il corso</b><p>E da lì partono i tuoi 100 minuti — con la garanzia "Suoni o Rimborsato" di 30 giorni.</p></div></div>
+</div>
+
+<p class="hint">💡 Un consiglio: salva il nostro numero <b>049 9000348</b> in rubrica, così quando ti chiamiamo sai che siamo noi.</p>
+
+<a class="back" href="/">← Torna alla pagina del corso</a>
+
+<footer>© <span id="y"></span> Piazzo Strumenti Musicali · Via G. Galilei 45, Mestrino (PD) · <a href="mailto:info@piazzostrumenti.it">info@piazzostrumenti.it</a></footer>
+<script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+</body>
+</html>

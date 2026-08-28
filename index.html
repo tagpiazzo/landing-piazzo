@@ -490,6 +490,40 @@ nav.deskmenu a:hover{color:var(--giallo)}
 }
 .secure-row span{display:flex;align-items:center;gap:6px}
 
+/* ---------- form lead ---------- */
+.form-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:60px;align-items:start;max-width:1000px;margin:60px auto 0}
+@media(max-width:860px){.form-grid{grid-template-columns:1fr;gap:40px}}
+.form-steps{display:flex;flex-direction:column;gap:26px}
+.form-step{display:flex;gap:18px;align-items:flex-start}
+.form-step .n{
+  width:42px;height:42px;border-radius:50%;flex-shrink:0;
+  background:var(--giallo);color:var(--nero);font-weight:900;font-size:18px;
+  display:flex;align-items:center;justify-content:center;
+}
+.form-step b{display:block;font-size:17px;margin-bottom:4px}
+.form-step p{font-size:14.5px;color:var(--grigio)}
+.lead-card{
+  background:var(--nero-2);border:2px solid var(--giallo);border-radius:24px;
+  padding:38px 34px;box-shadow:0 0 70px rgba(255,244,4,.1);
+}
+@media(max-width:640px){.lead-card{padding:30px 22px}}
+.lead-card label{display:block;font-size:13.5px;font-weight:700;letter-spacing:.04em;margin-bottom:7px}
+.lead-card input,.lead-card select{
+  width:100%;padding:15px 16px;margin-bottom:18px;
+  background:var(--nero);border:1px solid rgba(255,255,255,.18);border-radius:12px;
+  color:var(--bianco);font-family:inherit;font-size:15.5px;
+  transition:border-color .2s;
+  -webkit-appearance:none;appearance:none;
+}
+.lead-card select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23FFF404' stroke-width='2' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center}
+.lead-card input:focus,.lead-card select:focus{outline:none;border-color:var(--giallo)}
+.lead-card input::placeholder{color:#5c5c66}
+.consent{display:flex;gap:10px;align-items:flex-start;margin-bottom:22px}
+.consent input{width:auto;margin:3px 0 0;accent-color:var(--giallo)}
+.consent span{font-size:12.5px;color:var(--grigio);line-height:1.5}
+.lead-card .btn{width:100%;font-size:17px;padding:18px}
+.lead-note{text-align:center;font-size:12.5px;color:var(--grigio);margin-top:14px}
+
 /* ---------- garanzia ---------- */
 .garanzia{
   display:grid;grid-template-columns:auto 1fr;gap:50px;align-items:center;
@@ -599,7 +633,7 @@ footer a:hover{color:var(--giallo)}
     Il metodo pratico che ti mette le <b>tue canzoni preferite sotto le dita</b> — e ti insegna a <b>riconoscerle a orecchio</b> quando le senti alla radio.</p>
     <div class="reveal">
       <a href="#offerta" class="btn btn-giallo">🎹 Voglio iniziare a suonare</a>
-      <span class="btn-note">✓ Accesso immediato &nbsp;·&nbsp; ✓ Garanzia 30 giorni &nbsp;·&nbsp; ✓ Per sempre tuo</span>
+      <span class="btn-note">✓ Senza impegno &nbsp;·&nbsp; ✓ Garanzia 30 giorni &nbsp;·&nbsp; ✓ Per sempre tuo</span>
     </div>
     <div class="hero-proof reveal">
       <div class="avatars" aria-hidden="true">
@@ -942,12 +976,50 @@ footer a:hover{color:var(--giallo)}
         <span class="price-new">97€</span>
       </div>
       <p class="price-note">Pagamento unico · Nessun abbonamento, nessun rinnovo automatico</p>
-      <a href="#" class="btn btn-giallo" id="buy-btn">🎹 Sì, voglio suonare — Inizia ora</a>
+      <a href="#form" class="btn btn-giallo">🎹 Sì, voglio iniziare — Riserva il tuo posto</a>
       <div class="secure-row">
-        <span>🔒 Pagamento sicuro</span>
-        <span>⚡ Accesso immediato</span>
+        <span>📞 Ti richiamiamo noi</span>
+        <span>✋ Nessun pagamento ora</span>
         <span>🛡️ Garanzia 30 giorni</span>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======= FORM LEAD ======= -->
+<section class="sec sec-darker" id="form">
+  <div class="container">
+    <div class="center reveal">
+      <div class="eyebrow" style="justify-content:center">Riserva il tuo posto</div>
+      <h2>Compila il modulo:<br>ti <span class="yellow-text">richiamiamo noi</span></h2>
+      <p class="section-sub" style="margin:0 auto">Nessun pagamento online, nessun impegno: lasci i tuoi contatti e una persona vera di PianoFacile ti chiama per rispondere alle tue domande e attivarti il corso.</p>
+    </div>
+    <div class="form-grid">
+      <div class="form-steps reveal-left">
+        <div class="form-step"><span class="n">1</span><div><b>Compili il modulo</b><p>30 secondi: nome, telefono, email. Tutto qui.</p></div></div>
+        <div class="form-step"><span class="n">2</span><div><b>Ti chiamiamo entro 24 ore lavorative</b><p>Una chiacchierata senza impegno: rispondiamo alle tue domande, ti consigliamo sullo strumento se ti serve, e se è tutto ok ti attiviamo il corso.</p></div></div>
+        <div class="form-step"><span class="n">3</span><div><b>Inizi i tuoi 100 minuti</b><p>Accesso al corso completo, con la garanzia "Suoni o Rimborsato" di 30 giorni dalla tua attivazione.</p></div></div>
+      </div>
+      <form class="lead-card reveal-right" id="lead-form" action="https://formsubmit.co/info@piazzostrumenti.it" method="POST">
+        <input type="hidden" name="_subject" value="🎹 Nuovo lead PianoFacile">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_next" value="" id="next-url">
+        <label for="f-nome">Nome e cognome</label>
+        <input id="f-nome" name="Nome" type="text" placeholder="Mario Rossi" required autocomplete="name">
+        <label for="f-tel">Telefono</label>
+        <input id="f-tel" name="Telefono" type="tel" placeholder="333 1234567" required autocomplete="tel" pattern="[0-9+ ]{6,}">
+        <label for="f-email">Email</label>
+        <input id="f-email" name="Email" type="email" placeholder="mario@email.it" required autocomplete="email">
+        <label for="f-strumento">Hai già una tastiera o un pianoforte?</label>
+        <select id="f-strumento" name="Strumento">
+          <option value="Sì, ce l'ho già">Sì, ce l'ho già</option>
+          <option value="No, mi serve un consiglio">No, mi serve un consiglio</option>
+        </select>
+        <label class="consent"><input type="checkbox" required><span>Ho letto l'informativa privacy e acconsento a essere ricontattato da Piazzo Strumenti Musicali per l'attivazione del corso.</span></label>
+        <button type="submit" class="btn btn-giallo">📞 Riserva il tuo posto — Richiedi la chiamata</button>
+        <p class="lead-note">🔒 I tuoi dati sono al sicuro · Niente spam, solo la chiamata</p>
+      </form>
     </div>
   </div>
 </section>
@@ -996,7 +1068,7 @@ footer a:hover{color:var(--giallo)}
       <details class="faq"><summary>Quanto tempo ho per completare il corso?</summary><div class="faq-body"><b>Tutto il tempo che vuoi: l'accesso è a vita.</b> Puoi fare i 100 minuti in un pomeriggio o spalmarli in due settimane, 10 minuti a sera. Il corso si adatta alla tua vita, non il contrario.</div></details>
       <details class="faq"><summary>Sono "troppo grande" per imparare?</summary><div class="faq-body">I nostri studenti hanno dai 13 agli 81 anni, e la fascia più numerosa è quella <b>tra i 40 e i 60</b>. Da adulto hai anzi due vantaggi enormi: sai perché lo stai facendo e sai ascoltare. Il mito del "si impara solo da piccoli" vale per i concertisti, non per chi vuole suonare le canzoni che ama.</div></details>
       <details class="faq"><summary>Come funziona esattamente la garanzia?</summary><div class="faq-body">Hai <b>30 giorni</b> dall'acquisto. Se il corso non ti convince — qualunque sia il motivo — mandi una email a info@piazzostrumenti.it e ricevi il <b>rimborso del 100%</b>. Nessun modulo, nessuna giustificazione richiesta, nessuna trattenuta.</div></details>
-      <details class="faq"><summary>Come accedo al corso dopo l'acquisto?</summary><div class="faq-body">Subito dopo il pagamento ricevi una email con le tue credenziali. Il corso si guarda da <b>computer, tablet o smartphone</b> — l'ideale è mettere il telefono sul leggio della tastiera e seguire le lezioni tasto per tasto.</div></details>
+      <details class="faq"><summary>Come funziona l'attivazione del corso?</summary><div class="faq-body">Compili il modulo in fondo alla pagina e <b>ti richiamiamo noi entro 24 ore lavorative</b>: rispondiamo alle tue domande, ti consigliamo sullo strumento se ti serve, e ti attiviamo il corso. Poi lo guardi da <b>computer, tablet o smartphone</b> — l'ideale è mettere il telefono sul leggio e seguire le lezioni tasto per tasto.</div></details>
     </div>
   </div>
 </section>
@@ -1008,8 +1080,8 @@ footer a:hover{color:var(--giallo)}
       <div class="eyebrow" style="justify-content:center">L'ultima nota spetta a te</div>
       <h2>Tra un mese potresti <span class="hl">saper suonare</span>.<br>Oppure essere ancora qui a pensarci.</h2>
       <p class="section-sub">100 minuti. 4 accordi. Una garanzia totale di 30 giorni.<br>L'unica cosa che può andare storta è non provarci.</p>
-      <a href="#offerta" class="btn btn-giallo" style="font-size:19px;padding:21px 46px">🎹 Inizia i tuoi 100 minuti</a>
-      <span class="btn-note">✓ 97€ invece di 297€ &nbsp;·&nbsp; ✓ Accesso a vita &nbsp;·&nbsp; ✓ Rimborso garantito 30 giorni</span>
+      <a href="#form" class="btn btn-giallo" style="font-size:19px;padding:21px 46px">📞 Riserva il tuo posto — ti richiamiamo noi</a>
+      <span class="btn-note">✓ 97€ invece di 297€ &nbsp;·&nbsp; ✓ Nessun pagamento online &nbsp;·&nbsp; ✓ Rimborso garantito 30 giorni</span>
     </div>
   </div>
 </section>
@@ -1171,22 +1243,21 @@ mq.innerHTML += mq.innerHTML;
 
 /* ---------- sticky cta ---------- */
 const sticky = document.getElementById('stickyCta');
-const offerSec = document.getElementById('offerta');
+const hideZones = [document.getElementById('offerta'), document.getElementById('form')];
 window.addEventListener('scroll', () => {
   const past = window.scrollY > window.innerHeight * 0.9;
-  const offerRect = offerSec.getBoundingClientRect();
-  const onOffer = offerRect.top < window.innerHeight && offerRect.bottom > 0;
-  sticky.classList.toggle('show', past && !onOffer);
+  const onZone = hideZones.some(sec => {
+    const r = sec.getBoundingClientRect();
+    return r.top < window.innerHeight && r.bottom > 0;
+  });
+  sticky.classList.toggle('show', past && !onZone);
 }, { passive:true });
 
 /* ---------- year ---------- */
 document.getElementById('year').textContent = new Date().getFullYear();
 
-/* ---------- buy button placeholder ---------- */
-document.getElementById('buy-btn').addEventListener('click', e => {
-  e.preventDefault();
-  alert('Collega qui il tuo link di pagamento (Stripe, PayPal, ThriveCart...) sostituendo l\'href del bottone #buy-btn in index.html');
-});
+/* ---------- lead form: redirect alla thank you page ---------- */
+document.getElementById('next-url').value = window.location.origin + '/grazie.html';
 </script>
 </body>
 </html>
