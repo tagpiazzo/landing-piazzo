@@ -536,8 +536,12 @@ nav.deskmenu a:hover{color:var(--giallo)}
 .lead-card select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23FFF404' stroke-width='2' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center}
 .lead-card input:focus,.lead-card select:focus{outline:none;border-color:var(--giallo)}
 .lead-card input::placeholder{color:#5c5c66}
-.consent{display:flex;gap:10px;align-items:flex-start;margin-bottom:22px}
-.consent input{width:auto;margin:3px 0 0;accent-color:var(--giallo)}
+.consent{display:flex;gap:10px;align-items:flex-start;margin-bottom:22px;cursor:pointer}
+.consent input{
+  -webkit-appearance:checkbox;appearance:auto;
+  width:17px;height:17px;flex-shrink:0;padding:0;margin:3px 0 0;
+  accent-color:var(--giallo);cursor:pointer;
+}
 .consent span{font-size:12.5px;color:var(--grigio);line-height:1.5}
 .lead-card .btn{width:100%;font-size:17px;padding:18px}
 .lead-note{text-align:center;font-size:12.5px;color:var(--grigio);margin-top:14px}
@@ -999,6 +1003,12 @@ footer a:hover{color:var(--giallo)}
         <p>Nessun pagamento ora: compila il modulo e <b>ti richiamiamo entro 24 ore lavorative</b> per rispondere alle tue domande e attivarti il corso.</p>
       </div>
       <form class="lead-card lead-inline" id="form" action="/api/lead" method="POST">
+        <input type="hidden" name="utm_source" id="utm_source">
+        <input type="hidden" name="utm_medium" id="utm_medium">
+        <input type="hidden" name="utm_campaign" id="utm_campaign">
+        <input type="hidden" name="utm_term" id="utm_term">
+        <input type="hidden" name="utm_content" id="utm_content">
+        <input type="hidden" name="fbclid" id="fbclid">
         <label for="f-nome">Nome e cognome</label>
         <input id="f-nome" name="Nome" type="text" placeholder="Mario Rossi" required autocomplete="name">
         <label for="f-tel">Telefono</label>
@@ -1253,6 +1263,28 @@ window.addEventListener('scroll', () => {
 
 /* ---------- year ---------- */
 document.getElementById('year').textContent = new Date().getFullYear();
+
+/* ---------- UTM tracking: cattura, persisti e riempi i campi nascosti ---------- */
+(function(){
+  const KEYS = ['utm_source','utm_medium','utm_campaign','utm_term','utm_content','fbclid'];
+  const STORE = 'pf_utm';
+  const qs = new URLSearchParams(window.location.search);
+  let saved = {};
+  try { saved = JSON.parse(localStorage.getItem(STORE)) || {}; } catch(e) {}
+  let fresh = false;
+  KEYS.forEach(k => {
+    const v = qs.get(k);
+    if (v) { saved[k] = v; fresh = true; }
+  });
+  if (fresh) {
+    saved._landed = window.location.href.split('#')[0];
+    try { localStorage.setItem(STORE, JSON.stringify(saved)); } catch(e) {}
+  }
+  KEYS.forEach(k => {
+    const el = document.getElementById(k);
+    if (el && saved[k]) el.value = saved[k];
+  });
+})();
 
 </script>
 </body>
