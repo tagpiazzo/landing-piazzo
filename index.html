@@ -12,7 +12,7 @@
 <meta name="twitter:card" content="summary">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&family=Quicksand:wght@600;700&display=swap" rel="stylesheet">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='18' fill='%230b0b0d'/><rect x='16' y='25' width='12' height='50' fill='white'/><rect x='30' y='25' width='12' height='50' fill='white'/><rect x='44' y='25' width='12' height='50' fill='white'/><rect x='58' y='25' width='12' height='50' fill='white'/><rect x='72' y='25' width='12' height='50' fill='%23FFF404'/><rect x='25' y='25' width='8' height='30' fill='%230b0b0d'/><rect x='39' y='25' width='8' height='30' fill='%230b0b0d'/><rect x='67' y='25' width='8' height='30' fill='%230b0b0d'/></svg>">
 <style>
 :root{
@@ -108,6 +108,13 @@ header{
   display:flex;align-items:center;justify-content:space-between;gap:16px;
 }
 .logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.logo-word{
+  font-family:'Quicksand',sans-serif;font-weight:700;
+  font-size:27px;letter-spacing:-.015em;line-height:1;
+  display:inline-flex;text-transform:lowercase;
+}
+.logo-word .lp{color:var(--bianco)}
+.logo-word .lf{color:var(--giallo)}
 .logo-keys{display:flex;align-items:flex-start;height:30px;border-radius:4px;overflow:hidden;border:2px solid var(--giallo)}
 .logo-keys span{width:9px;height:100%;background:var(--bianco);border-right:1px solid #ccc}
 .logo-keys span:last-child{border-right:none}
@@ -610,8 +617,8 @@ footer a:hover{color:var(--giallo)}
 <header id="header">
   <div class="announce">🎹 Offerta di lancio: <b>−67%</b> + Garanzia "Suoni o Rimborsato" di 30 giorni — solo per poco tempo</div>
   <div class="header-inner">
-    <a class="logo" href="#top" aria-label="PianoFacile">
-      <img src="logo-pianofacile.png" alt="PianoFacile" style="height:38px;width:auto;display:block">
+    <a class="logo" href="#top" aria-label="pianofacile">
+      <span class="logo-word"><span class="lp">piano</span><span class="lf">facile</span></span>
     </a>
     <nav class="deskmenu">
       <a href="#metodo">Il Metodo</a>
@@ -1092,9 +1099,9 @@ footer a:hover{color:var(--giallo)}
     <div class="footer-grid">
       <div>
         <a class="logo" href="#top" style="margin-bottom:18px;display:inline-flex">
-          <img src="logo-pianofacile.png" alt="PianoFacile" style="height:44px;width:auto;display:block">
+          <span class="logo-word" style="font-size:30px"><span class="lp">piano</span><span class="lf">facile</span></span>
         </a>
-        <p><b style="color:var(--grigio-chiaro)">PianoFacile</b> è il metodo di Piazzo Strumenti Musicali — uno dei più grandi negozi di strumenti d'Italia: migliaia di strumenti, uno staff di musicisti e ora anche la formazione, dallo showroom di Mestrino (Padova).</p>
+        <p><b style="color:var(--grigio-chiaro)">pianofacile</b> è il metodo di Piazzo Strumenti Musicali — uno dei più grandi negozi di strumenti d'Italia: migliaia di strumenti, uno staff di musicisti e ora anche la formazione, dallo showroom di Mestrino (Padova).</p>
       </div>
       <div>
         <h4>Contatti</h4>

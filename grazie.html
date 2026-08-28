@@ -7,7 +7,7 @@
 <meta name="robots" content="noindex, nofollow">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;600;700;800;900&family=Quicksand:wght@700&display=swap" rel="stylesheet">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='18' fill='%230b0b0d'/><rect x='16' y='25' width='12' height='50' fill='white'/><rect x='30' y='25' width='12' height='50' fill='white'/><rect x='44' y='25' width='12' height='50' fill='white'/><rect x='58' y='25' width='12' height='50' fill='white'/><rect x='72' y='25' width='12' height='50' fill='%23FFF404'/><rect x='25' y='25' width='8' height='30' fill='%230b0b0d'/><rect x='39' y='25' width='8' height='30' fill='%230b0b0d'/><rect x='67' y='25' width='8' height='30' fill='%230b0b0d'/></svg>">
 <style>
 :root{
@@ -24,7 +24,12 @@ body{
   padding:40px 24px 60px;text-align:center;
 }
 ::selection{background:var(--giallo);color:var(--nero)}
-.logo{height:44px;margin-bottom:60px}
+.logo{
+  font-family:'Quicksand',sans-serif;font-weight:700;font-size:34px;
+  letter-spacing:-.015em;line-height:1;margin-bottom:60px;text-transform:lowercase;
+}
+.logo .lp{color:var(--bianco)}
+.logo .lf{color:var(--giallo)}
 .check{
   width:96px;height:96px;border-radius:50%;background:var(--giallo);
   display:flex;align-items:center;justify-content:center;margin-bottom:32px;
@@ -62,7 +67,7 @@ footer a{color:#63636b}
 </style>
 </head>
 <body>
-<img class="logo" src="logo-pianofacile.png" alt="PianoFacile">
+<div class="logo" aria-label="pianofacile"><span class="lp">piano</span><span class="lf">facile</span></div>
 
 <div class="check" aria-hidden="true">
   <svg viewBox="0 0 24 24" fill="none"><path d="M4 12.5l5 5L20 6.5" stroke="#0b0b0d" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
