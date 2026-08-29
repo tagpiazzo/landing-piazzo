@@ -38,7 +38,8 @@ src="https://www.facebook.com/tr?id=1074414008286604&ev=PageView&noscript=1"
 <!-- End Microsoft Clarity -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&family=Quicksand:wght@600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&family=Quicksand:wght@600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&family=Quicksand:wght@600;700&display=swap" rel="stylesheet"></noscript>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='18' fill='%230b0b0d'/><rect x='16' y='25' width='12' height='50' fill='white'/><rect x='30' y='25' width='12' height='50' fill='white'/><rect x='44' y='25' width='12' height='50' fill='white'/><rect x='58' y='25' width='12' height='50' fill='white'/><rect x='72' y='25' width='12' height='50' fill='%23FFF404'/><rect x='25' y='25' width='8' height='30' fill='%230b0b0d'/><rect x='39' y='25' width='8' height='30' fill='%230b0b0d'/><rect x='67' y='25' width='8' height='30' fill='%230b0b0d'/></svg>">
 <style>
 :root{
@@ -613,13 +614,13 @@ nav.deskmenu a:hover{color:var(--giallo)}
 footer{background:#060608;border-top:1px solid rgba(255,255,255,.07);padding:60px 0 40px}
 .footer-grid{display:grid;grid-template-columns:1.6fr 1fr;gap:44px;margin-bottom:44px}
 @media(max-width:760px){.footer-grid{grid-template-columns:1fr}}
-footer h4{font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:var(--giallo);margin-bottom:16px}
+footer h3{font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:var(--giallo);margin-bottom:16px}
 footer p,footer a{font-size:14.5px;color:var(--grigio);text-decoration:none;line-height:2}
 footer a:hover{color:var(--giallo)}
 .footer-bottom{
   border-top:1px solid rgba(255,255,255,.07);padding-top:26px;
   display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;
-  font-size:13px;color:#63636b;
+  font-size:13px;color:#9a9aa3;
 }
 
 /* ---------- sticky cta ---------- */
@@ -658,6 +659,7 @@ footer a:hover{color:var(--giallo)}
   </div>
 </header>
 
+<main>
 <!-- ======= HERO ======= -->
 <section class="hero" id="top">
   <div class="hero-inner">
@@ -680,7 +682,7 @@ footer a:hover{color:var(--giallo)}
   <!-- interactive piano -->
   <div class="piano-wrap">
     <div class="piano-hint">▼ &nbsp;Questo pianoforte <b>suona davvero</b> — provalo&nbsp; ▼</div>
-    <div class="piano" id="piano" aria-label="Pianoforte interattivo"></div>
+    <div class="piano" id="piano" role="group" aria-label="Pianoforte interattivo"></div>
   </div>
 </section>
 
@@ -839,7 +841,7 @@ footer a:hover{color:var(--giallo)}
 
     <div class="offer-rows">
       <div class="offer-row">
-        <div class="offer-row-img reveal-left"><img src="offer-materiali.webp" alt="I materiali pratici inclusi: prontuario e checklist stampabile" loading="lazy"></div>
+        <div class="offer-row-img reveal-left"><img src="offer-materiali.webp" alt="I materiali pratici inclusi: prontuario e checklist stampabile" width="1168" height="880" loading="lazy"></div>
         <div class="offer-row-txt reveal-right">
           <span class="row-tag">Oltre alle video-lezioni</span>
           <h3>I materiali pratici che ti tengono sul pezzo</h3>
@@ -849,7 +851,7 @@ footer a:hover{color:var(--giallo)}
         </div>
       </div>
       <div class="offer-row">
-        <div class="offer-row-img reveal-right"><img src="offer-sconto.webp" alt="Bonus: 10% di sconto su tastiere e pianoforti Piazzo" loading="lazy"></div>
+        <div class="offer-row-img reveal-right"><img src="offer-sconto.webp" alt="Bonus: 10% di sconto su tastiere e pianoforti Piazzo" width="1168" height="880" loading="lazy"></div>
         <div class="offer-row-txt reveal-left">
           <span class="row-tag">Bonus</span>
           <h3>10% di sconto su tastiere e pianoforti</h3>
@@ -859,7 +861,7 @@ footer a:hover{color:var(--giallo)}
         </div>
       </div>
       <div class="offer-row">
-        <div class="offer-row-img reveal-left"><img src="offer-vita.webp" alt="Accesso e aggiornamenti a vita, simbolo infinito sui tasti del pianoforte" loading="lazy"></div>
+        <div class="offer-row-img reveal-left"><img src="offer-vita.webp" alt="Accesso e aggiornamenti a vita, simbolo infinito sui tasti del pianoforte" width="1168" height="880" loading="lazy"></div>
         <div class="offer-row-txt reveal-right">
           <span class="row-tag">Per sempre tuo</span>
           <h3>Aggiornamenti a vita. Paghi una volta sola.</h3>
@@ -953,7 +955,7 @@ footer a:hover{color:var(--giallo)}
   <div class="container chisiamo-grid">
     <div class="reveal-left">
       <div class="maestro-photo">
-        <img src="maestro-john-bellavia.webp" alt="John Bellavia dal vivo alle tastiere" loading="lazy">
+        <img src="maestro-john-bellavia.webp" alt="John Bellavia dal vivo alle tastiere" width="1024" height="646" loading="lazy">
         <div class="maestro-plate">
           <b>John Bellavia</b>
           <span>Pianista · Compositore · Arrangiatore</span>
@@ -1104,6 +1106,7 @@ footer a:hover{color:var(--giallo)}
     </div>
   </div>
 </section>
+</main>
 
 <!-- ======= FOOTER ======= -->
 <footer>
@@ -1116,7 +1119,7 @@ footer a:hover{color:var(--giallo)}
         <p><b style="color:var(--grigio-chiaro)">pianofacile</b> è il metodo di Piazzo Strumenti Musicali — uno dei più grandi negozi di strumenti d'Italia: migliaia di strumenti, uno staff di musicisti e ora anche la formazione, dallo showroom di Mestrino (Padova).</p>
       </div>
       <div>
-        <h4>Link utili</h4>
+        <h3>Link utili</h3>
         <p>
           <a href="#metodo">Il Metodo</a><br>
           <a href="#percorso">I 100 Minuti</a><br>
