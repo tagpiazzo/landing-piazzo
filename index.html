@@ -91,15 +91,18 @@ h2{font-size:clamp(30px,4.4vw,50px);margin-bottom:20px}
 .center{text-align:center}
 .center .section-sub{margin-left:auto;margin-right:auto}
 
-/* ---------- reveal animations ---------- */
-.reveal{opacity:0;transform:translateY(34px);transition:opacity .8s cubic-bezier(.22,1,.36,1),transform .8s cubic-bezier(.22,1,.36,1)}
-.reveal.visible{opacity:1;transform:none}
-.reveal-left{opacity:0;transform:translateX(-40px);transition:opacity .8s ease,transform .8s cubic-bezier(.22,1,.36,1)}
-.reveal-left.visible{opacity:1;transform:none}
-.reveal-right{opacity:0;transform:translateX(40px);transition:opacity .8s ease,transform .8s cubic-bezier(.22,1,.36,1)}
-.reveal-right.visible{opacity:1;transform:none}
-.stagger>*{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s cubic-bezier(.22,1,.36,1)}
-.stagger.visible>*{opacity:1;transform:none}
+/* ---------- reveal animations ----------
+   Gli stati nascosti si attivano solo con html.js-anim (aggiunta via JS):
+   senza JavaScript — o nei replay di strumenti come Clarity — la pagina
+   resta completamente visibile. */
+.js-anim .reveal{opacity:0;transform:translateY(34px);transition:opacity .8s cubic-bezier(.22,1,.36,1),transform .8s cubic-bezier(.22,1,.36,1)}
+.js-anim .reveal.visible{opacity:1;transform:none}
+.js-anim .reveal-left{opacity:0;transform:translateX(-40px);transition:opacity .8s ease,transform .8s cubic-bezier(.22,1,.36,1)}
+.js-anim .reveal-left.visible{opacity:1;transform:none}
+.js-anim .reveal-right{opacity:0;transform:translateX(40px);transition:opacity .8s ease,transform .8s cubic-bezier(.22,1,.36,1)}
+.js-anim .reveal-right.visible{opacity:1;transform:none}
+.js-anim .stagger>*{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s cubic-bezier(.22,1,.36,1)}
+.js-anim .stagger.visible>*{opacity:1;transform:none}
 
 /* ---------- buttons ---------- */
 .btn{
@@ -1137,6 +1140,8 @@ footer a:hover{color:var(--giallo)}
 
 <script>
 /* ---------- reveal on scroll ---------- */
+/* attiva gli stati nascosti solo se il JS gira davvero */
+document.documentElement.classList.add('js-anim');
 const io = new IntersectionObserver(entries => {
   entries.forEach(e => {
     if (e.isIntersecting) {
@@ -1149,6 +1154,14 @@ const io = new IntersectionObserver(entries => {
   });
 }, { threshold: 0.14 });
 document.querySelectorAll('.reveal,.reveal-left,.reveal-right,.stagger').forEach(el => io.observe(el));
+
+/* rete di sicurezza: dopo 2s rendi comunque visibile ciò che è vicino al viewport
+   (evita schermate "nere" su dispositivi lenti e nelle registrazioni di sessione) */
+setTimeout(() => {
+  document.querySelectorAll('.reveal:not(.visible),.reveal-left:not(.visible),.reveal-right:not(.visible),.stagger:not(.visible)').forEach(el => {
+    if (el.getBoundingClientRect().top < window.innerHeight * 1.6) el.classList.add('visible');
+  });
+}, 2000);
 
 /* ---------- counters ---------- */
 const cio = new IntersectionObserver(entries => {
